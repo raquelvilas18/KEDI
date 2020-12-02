@@ -10,11 +10,11 @@
         android:id="@+id/imageView"
         android:layout_width="146dp"
         android:layout_height="136dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/recurso_1previewlogos" />
+        app:srcCompat="@drawable/ic_kedi" />
 
     <EditText
         android:id="@+id/inputName"
@@ -77,7 +77,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/ly_principal_button"
         android:text="Entrar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -134,7 +134,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/facebook_button"
-        android:drawableLeft="@drawable/facebook_icon"
+        android:drawableLeft="@drawable/ic_facebook"
         android:padding="8dp"
         android:text="facebook"
         android:textAllCaps="false"
