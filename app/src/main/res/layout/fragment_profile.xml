@@ -9,24 +9,26 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_gray">
+        android:background="@color/profile_bg">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="14dp"
+            android:id="@+id/cardViewPpal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             app:cardCornerRadius="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
             <ImageView
-                android:id="@+id/image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/imageProfile"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:scaleType="centerCrop"
-                tools:srcCompat="@drawable/persona" />
+                android:src="@drawable/persona" />
         </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/profileName"
@@ -39,13 +41,14 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/cardViewPpal" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ilocalizacion"
+            app:tint="@color/profile"
             app:layout_constraintBottom_toBottomOf="@+id/ubication"
             app:layout_constraintEnd_toStartOf="@+id/ubication" />
 
@@ -67,7 +70,7 @@
             android:background="@drawable/ly_secondary_button"
             android:text="Editar"
             android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ubication" />
@@ -83,11 +86,48 @@
             app:layout_constraintTop_toBottomOf="@+id/btEdit">
 
             <TextView
+                android:id="@+id/opinions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ver opiniones"
+                android:textColor="@color/profile"
+                app:layout_constraintBottom_toBottomOf="@+id/profileValoration"
+                app:layout_constraintEnd_toStartOf="@+id/imageView5" />
+
+            <TextView
+                android:id="@+id/announcements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="ver anuncios"
+                android:textColor="@color/profile"
+                app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                app:layout_constraintEnd_toStartOf="@+id/imageView6" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_rigth"
+                app:layout_constraintBottom_toBottomOf="@+id/opinions"
+                app:layout_constraintEnd_toEndOf="@+id/profileDescription"
+                app:layout_constraintTop_toTopOf="@+id/opinions" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_rigth"
+                app:layout_constraintBottom_toBottomOf="@+id/announcements"
+                app:layout_constraintEnd_toEndOf="@+id/profileDescription"
+                app:layout_constraintTop_toTopOf="@+id/announcements" />
+
+            <TextView
                 android:id="@+id/profileDescription"
                 android:layout_width="333dp"
                 android:layout_height="92dp"
                 android:layout_marginTop="8dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -175,6 +215,18 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Logros:"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView2"

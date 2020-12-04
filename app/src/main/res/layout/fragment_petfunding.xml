@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.announcements.AnnouncementsFragment">
+    tools:context=".ui.petfunding.PetfundingFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -12,17 +12,16 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
-        <!--android:background="#F7F7F7"-->
+
         <ListView
-            android:id="@+id/announcements_list"
+            android:id="@+id/petfunding_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/announcements_bg"
+            android:background="@color/petfunding_bg"
             android:divider="@android:color/transparent"
             android:dividerHeight="10.0sp"
             android:padding="10dp">
 
         </ListView>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="wrap_content" android:layout_width="wrap_content">
+    <item android:id="@android:id/background">
+        <shape>
+            <gradient
+                android:startColor="@color/petfunding_bg"
+                android:centerColor="#ebebeb"
+                android:centerY="1.0"
+                android:endColor="@color/petfunding_bg"
+                android:angle="0"
+                />
+            <size
+                android:height="5dp"/>
+            <corners android:radius="50dp"></corners>
+        </shape>
+    </item>
+
+    <!-- Define the progress properties like start color, end color etc -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <gradient
+                    android:startColor="#80E17A47"
+                    android:centerColor="#90e36bc5"
+                    android:centerY="0.2"
+                    android:endColor="@color/petfunding"
+                    android:angle="0"
+                    />
+                <corners android:radius="50dp"></corners>
+                <size
+                    android:height="10dp"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>

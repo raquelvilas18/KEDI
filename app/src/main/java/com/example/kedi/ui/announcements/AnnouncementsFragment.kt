@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import android.widget.AdapterView.OnItemClickListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -70,13 +69,13 @@ class AnnouncementsFragment : Fragment() {
 
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val layoutInflater = LayoutInflater.from(mContext)
-            val row_main =  layoutInflater.inflate(R.layout.row_lista, p2, false)
-            val nameTextView = row_main.findViewById<TextView>(R.id.name)
+            val row_main =  layoutInflater.inflate(R.layout.row_announcements, p2, false)
+            val nameTextView = row_main.findViewById<TextView>(R.id.title)
             nameTextView.text = anuncios.get(p0).name
             val cityTextView = row_main.findViewById<TextView>(R.id.city)
             cityTextView.text = anuncios.get(p0).ciudad
 
-            val fecha0 = row_main.findViewById<TextView>(R.id.date0)
+            val fecha0 = row_main.findViewById<TextView>(R.id.owner)
             val format = SimpleDateFormat("dd MMM")
             fecha0.text = format.format(anuncios.get(p0).fechaInicio).toString().toUpperCase()
             val fecha1 = row_main.findViewById<TextView>(R.id.date1)

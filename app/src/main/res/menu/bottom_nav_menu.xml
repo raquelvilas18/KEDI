@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_announcements"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="" />
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="anuncios"
+        app:cnb_iconColor="@color/announcements" />
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_baseline_notification_important_24"
-        android:title="" />
+        android:id="@+id/navigation_petfunding"
+        android:icon="@drawable/ic_heart"
+        android:title="petfunding"
+        app:cnb_iconColor="@color/petfunding"  />
 
     <item
         android:id="@+id/navigation_create"
         android:icon="@drawable/ic_baseline_add_circle_outline_24"
-        android:title="" />
+        android:title="nuevo"
+        app:cnb_iconColor="@color/create" />
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="" />
+        android:title="perfil"
+        app:cnb_iconColor="@color/profile" />
 
 </menu>
