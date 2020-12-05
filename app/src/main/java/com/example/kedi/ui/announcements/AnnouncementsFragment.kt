@@ -1,15 +1,20 @@
 package com.example.kedi.ui.announcements
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.widget.AdapterView.OnItemClickListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.kedi.ARG_IMG
+import com.example.kedi.ARG_NAME
 import com.example.kedi.R
+import com.example.kedi.announcement
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -19,14 +24,15 @@ class AnnouncementsFragment : Fragment() {
 
     private lateinit var announcementsViewModel: AnnouncementsViewModel
 
-    private class Anuncio(
+    public class Anuncio (
         name: String,
         price: Int,
         fechaInicio: Date,
         fechaFin: Date,
         ciudad: String,
         img: Int
-    ){
+    )
+    {
         var name = name
         var price = price
         var fechaInicio = fechaInicio
@@ -111,6 +117,13 @@ class AnnouncementsFragment : Fragment() {
         super.onActivityCreated(state)
         val listView = requireView().findViewById<View>(R.id.announcements_list) as ListView
         listView.adapter = getActivity()?.let { MyAdapter(it.getApplicationContext()) }
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val element:Anuncio = listView.adapter.getItem(position) as Anuncio
+            val intent = Intent(this.context, announcement::class.java)
+            intent.putExtra(ARG_NAME, element.name)
+            intent.putExtra(ARG_IMG, element.img)//int
+            startActivity(intent)
+        }
     }
 
 

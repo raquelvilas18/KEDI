@@ -8,9 +8,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".announcement"></activity>
         <activity
             android:name=".lista"
-            android:label="@string/title_activity_lista"></activity>
+            android:label="@string/title_activity_lista" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
