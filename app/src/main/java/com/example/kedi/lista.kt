@@ -1,5 +1,6 @@
 package com.example.kedi
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
@@ -7,13 +8,21 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager.widget.ViewPager
 import com.fxn.ariana.ArianaBackgroundListener
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_lista.*
 class lista : AppCompatActivity() {
 
     private lateinit var mViewPager: ViewPager
     private lateinit var mPagerViewAdapter: PagerViewAdapter
+
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     private lateinit var annoucementsBtn:ImageButton
     private lateinit var petfundingBtn:ImageButton
@@ -28,11 +37,16 @@ class lista : AppCompatActivity() {
         } catch (e: NullPointerException) {
         }
 
+
         mViewPager = findViewById(R.id.mViewPager)
         mPagerViewAdapter = PagerViewAdapter(supportFragmentManager)
         mViewPager.adapter = mPagerViewAdapter
         mViewPager.currentItem = 0
         menu_bottom.setItemSelected(R.id.navigation_announcements)
+        chatIcon.setOnClickListener{
+            val intent: Intent = Intent(this, Navigation::class.java)
+            startActivity(intent)
+        }
 
         menu_bottom.setOnItemSelectedListener { id ->
             when(id){

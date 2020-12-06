@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <gradient
-        android:startColor="@color/petfunding_bg"
-        android:centerX="0.1"
-        android:endColor="#FFFFFF"
+        android:endColor="@color/petfunding_bg"
+        android:startColor="@color/create_bg"
         android:type="linear"
-        android:angle="45" />
+        android:angle="180" />
 </shape>

@@ -238,7 +238,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView12">
 
                 <ImageView
-                    android:id="@+id/imageView16"
+                    android:id="@+id/petImage"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="centerCrop"

@@ -41,7 +41,7 @@ class announcement : AppCompatActivity() {
         tittle.text = "Acogida de ${profileName}"
 
         val img=intent.extras?.get(ARG_IMG) as Int
-        imagePet.setBackgroundResource(img)
+        imagePet.setImageResource(img)
         /*val format = SimpleDateFormat("dd MMM")
         initDate.text = format.format(anuncio.fechaInicio).toString().toUpperCase()
         endDate.text = format.format(anuncio.fechaFin).toString().toUpperCase()
