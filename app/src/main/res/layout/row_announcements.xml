@@ -9,19 +9,31 @@
 
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/valoration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito"
+        android:text="@string/_13"
+        android:textColor="@color/announcements"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/city"
+        app:layout_constraintTop_toTopOf="@+id/petOwner" />
+
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/ic_localitation"
         android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="@+id/imageCard"
-        app:layout_constraintStart_toStartOf="@+id/owner"
+        app:layout_constraintStart_toEndOf="@+id/imageCard"
         app:tint="@color/announcements" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/petOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -42,77 +54,60 @@
         android:fontFamily="@font/nunito"
         android:text="01 AUG"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/title"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintStart_toStartOf="@+id/petOwner"
+        app:layout_constraintTop_toBottomOf="@+id/petOwner" />
 
     <TextView
         android:id="@+id/date1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
         android:fontFamily="@font/nunito"
         android:text="13 AUG"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:fontFamily="@font/nunito"
-        android:text="@string/_13"
-        android:textColor="@color/announcements"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/title" />
+        app:layout_constraintTop_toTopOf="@+id/owner" />
 
     <TextView
         android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/nunito"
         android:text="@string/santiago_de_compostela"
         android:textSize="12sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCard"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/distancia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="4dp"
         android:fontFamily="@font/nunito"
         android:text="@string/a_1_km_de_ti"
         android:textColor="@color/announcements"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCard"
         app:layout_constraintStart_toEndOf="@+id/imageView4" />
+
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="22dp"
         android:layout_height="16dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toBottomOf="@+id/owner"
         app:layout_constraintStart_toEndOf="@+id/owner"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:srcCompat="@drawable/iflechader"
-        android:contentDescription="@string/todo" />
-
-
+        app:layout_constraintTop_toTopOf="@+id/owner"
+        app:srcCompat="@drawable/iflechader" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/imageCard"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        app:cardElevation="0dp"
         app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

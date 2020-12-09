@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -76,7 +75,7 @@ class AnnouncementsFragment : Fragment() {
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val layoutInflater = LayoutInflater.from(mContext)
             val row_main =  layoutInflater.inflate(R.layout.row_announcements, p2, false)
-            val nameTextView = row_main.findViewById<TextView>(R.id.title)
+            val nameTextView = row_main.findViewById<TextView>(R.id.owner)
             nameTextView.text = anuncios.get(p0).name
             val cityTextView = row_main.findViewById<TextView>(R.id.city)
             cityTextView.text = anuncios.get(p0).ciudad
@@ -87,7 +86,7 @@ class AnnouncementsFragment : Fragment() {
             val fecha1 = row_main.findViewById<TextView>(R.id.date1)
             fecha1.text = format.format(anuncios.get(p0).fechaFin).toString().toUpperCase()
 
-            val price = row_main.findViewById<TextView>(R.id.price)
+            val price = row_main.findViewById<TextView>(R.id.valoration)
             price.text = anuncios.get(p0).price.toString() + "€"
 
 
