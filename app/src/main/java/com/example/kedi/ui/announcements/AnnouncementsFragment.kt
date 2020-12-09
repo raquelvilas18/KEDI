@@ -14,6 +14,7 @@ import com.example.kedi.ARG_IMG
 import com.example.kedi.ARG_NAME
 import com.example.kedi.R
 import com.example.kedi.announcement
+import kotlinx.android.synthetic.main.fragment_announcements.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -101,8 +102,9 @@ class AnnouncementsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        //val list = requireView().findViewById<View>(R.id.announcements_list)as ListView
-       // list.adapter = MyAdapter(requireContext().applicationContext)
+       // val list = requireView().findViewById<View>(R.id.announcements_list)as ListView
+
+        //announcements_list.adapter = MyAdapter(requireContext().applicationContext)
 
         announcementsViewModel =
             ViewModelProviders.of(this).get(AnnouncementsViewModel::class.java)

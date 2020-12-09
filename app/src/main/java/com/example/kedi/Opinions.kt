@@ -55,7 +55,7 @@ class Opinions : AppCompatActivity() {
             val layoutInflater = LayoutInflater.from(mContext)
             val row_main =  layoutInflater.inflate(R.layout.row_opinion, p2, false)
             row_main.comment.text = opinions.get(p0).opinion
-            row_main.ownerPet.text = opinions.get(p0).owner
+            //row_main.ownerPet.text = opinions.get(p0).owner
 
             row_main.valoration.text = "${opinions.get(p0).punctuation}/5"
             val im = row_main.findViewById<ImageView>(R.id.image)

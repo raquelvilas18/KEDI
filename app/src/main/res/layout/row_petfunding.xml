@@ -31,7 +31,7 @@
         android:textAlignment="textEnd"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/owner" />
+        app:layout_constraintTop_toTopOf="@+id/ownerPet" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/imageCard"
@@ -62,7 +62,7 @@
         android:progressDrawable="@layout/curved_progress_bar"
         app:layout_constraintEnd_toEndOf="@+id/owner"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/owner"
+        app:layout_constraintStart_toStartOf="@+id/description"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
     <TextView
@@ -73,7 +73,7 @@
         android:fontFamily="@font/nunito"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/owner"
+        app:layout_constraintStart_toStartOf="@+id/ownerPet"
         app:layout_constraintTop_toBottomOf="@+id/owner" />
 
     <TextView
