@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kedi">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
 
     <application
         android:allowBackup="true"
@@ -19,16 +17,21 @@
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
+
+        <activity
+            android:name=".PetfundingActivity"
+            android:label="@string/title_activity_petfunding">
+        </activity>
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.ImageGallery"
-            android:label="@string/title_activity_image_gallery">
-        </activity>
+            android:label="@string/title_activity_image_gallery"></activity>
         <activity android:name=".ui.PetProfileActivity" />
         <activity
             android:name=".Navigation"
