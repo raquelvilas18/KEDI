@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_create"
-        android:name="com.example.kedi.ui.create.CreateFragment"
+        android:name="com.example.kedi.ui.proposals.ProposalsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_create" />
 

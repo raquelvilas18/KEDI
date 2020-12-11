@@ -1,11 +1,12 @@
-package com.example.kedi
+package com.example.kedi.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kedi.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-class PetProfile : AppCompatActivity() {
+class PetProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pet_profile)
@@ -18,7 +19,7 @@ class PetProfile : AppCompatActivity() {
         actionbar.setDisplayHomeAsUpEnabled(true)
 
         petImage?.setOnClickListener {
-            val intent = Intent(this, PetProfile::class.java)
+            val intent = Intent(this, PetProfileActivity::class.java)
             startActivity(intent)
         }
     }

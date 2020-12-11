@@ -10,11 +10,10 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.kedi.ARG_IMG
-import com.example.kedi.ARG_NAME
+import com.example.kedi.ui.ARG_IMG
+import com.example.kedi.ui.ARG_NAME
 import com.example.kedi.R
-import com.example.kedi.announcement
-import kotlinx.android.synthetic.main.fragment_announcements.*
+import com.example.kedi.ui.announcement
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -101,10 +100,6 @@ class AnnouncementsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-       // val list = requireView().findViewById<View>(R.id.announcements_list)as ListView
-
-        //announcements_list.adapter = MyAdapter(requireContext().applicationContext)
 
         announcementsViewModel =
             ViewModelProviders.of(this).get(AnnouncementsViewModel::class.java)

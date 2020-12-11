@@ -1,29 +1,22 @@
-package com.example.kedi
+package com.example.kedi.ui
 
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager.widget.ViewPager
-import com.fxn.ariana.ArianaBackgroundListener
-import com.google.android.material.navigation.NavigationView
+import com.example.kedi.R
 import kotlinx.android.synthetic.main.activity_lista.*
-class lista : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var mViewPager: ViewPager
     private lateinit var mPagerViewAdapter: PagerViewAdapter
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-
     private lateinit var annoucementsBtn:ImageButton
     private lateinit var petfundingBtn:ImageButton
     private lateinit var createBtn:ImageButton
@@ -44,7 +37,7 @@ class lista : AppCompatActivity() {
         mViewPager.currentItem = 0
         menu_bottom.setItemSelected(R.id.navigation_announcements)
         chatIcon.setOnClickListener{
-            val intent: Intent = Intent(this, Navigation::class.java)
+            val intent: Intent = Intent(this, ChatsActivity::class.java)
             startActivity(intent)
         }
 
@@ -85,25 +78,33 @@ class lista : AppCompatActivity() {
         when(position){
             0->{
                 //container.setBackgroundColor(ContextCompat.getColor(this, R.color.announcements_bg))
-                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.announcements)));
+                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(ContextCompat.getColor(this,
+                    R.color.announcements
+                )));
                 //ImageViewCompat.setImageTintList(menuIcon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.announcements)));
                 //ImageViewCompat.setImageTintList(chatIcon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.announcements)));
             }
             1->{
                 //container.setBackgroundColor(ContextCompat.getColor(this, R.color.petfunding_bg))
-                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.petfunding)));
+                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(ContextCompat.getColor(this,
+                    R.color.petfunding
+                )));
                 //ImageViewCompat.setImageTintList(menuIcon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.petfunding)));
                 //ImageViewCompat.setImageTintList(chatIcon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.petfunding)));
             }
             2->{
                 //container.setBackgroundColor(ContextCompat.getColor(this, R.color.create_bg))
-                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.create)));
+                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(ContextCompat.getColor(this,
+                    R.color.create
+                )));
                 //ImageViewCompat.setImageTintList(menuIcon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.create)));
                 //ImageViewCompat.setImageTintList(chatIcon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.create)));
             }
             3->{
                 //container.setBackgroundColor(ContextCompat.getColor(this, R.color.profile_bg))
-                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.profile)));
+                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(ContextCompat.getColor(this,
+                    R.color.profile
+                )));
                 //ImageViewCompat.setImageTintList(menuIcon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.profile)));
                 //ImageViewCompat.setImageTintList(chatIcon, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.profile)));
             }

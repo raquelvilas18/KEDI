@@ -1,11 +1,9 @@
-package com.example.kedi
+package com.example.kedi.ui
 
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.kedi.ui.announcements.AnnouncementsFragment
+import com.example.kedi.R
 import kotlinx.android.synthetic.main.activity_announcement.*
-import java.text.SimpleDateFormat
 
 const val ARG_IMG = "arg_img"
 const val ARG_NAME = "arg_name"

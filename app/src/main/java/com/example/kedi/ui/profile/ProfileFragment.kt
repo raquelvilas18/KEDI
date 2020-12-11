@@ -10,7 +10,8 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.kedi.*
-import com.makeramen.roundedimageview.RoundedImageView
+import com.example.kedi.ui.OpinionsActivity
+import com.example.kedi.ui.PetProfileActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.viewPagerImageSlider
 
@@ -80,7 +81,7 @@ class ProfileFragment : Fragment() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerAdapter.Pager2ViewHolder {
             return Pager2ViewHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.image_slider_item,
+                    R.layout.item_image_slider,
                     parent,
                     false
                 )
@@ -125,17 +126,24 @@ class ProfileFragment : Fragment() {
     override fun onActivityCreated(state: Bundle?) {
         super.onActivityCreated(state)
         opinions?.setOnClickListener {
-            val intent = Intent(this.context, Opinions::class.java)
+            val intent = Intent(this.context, OpinionsActivity::class.java)
             startActivity(intent)
         }
         //Go to pet profile by clicking on the pet image
         petImage?.setOnClickListener {
-            val intent = Intent(this.context, PetProfile::class.java)
+            val intent = Intent(this.context, PetProfileActivity::class.java)
             startActivity(intent)
         }
         //Show the image gallery by clicking on the porofile photo
         imageProfile?.setOnClickListener {
             imageGallery.visibility = View.VISIBLE
+            imageGallery.setAlpha(0.0f);
+
+            // Start the animation
+            imageGallery.animate()
+                .alpha(1.0f)
+                .setDuration(400)
+                .setListener(null);
         }
 
         //Configure Image Gallery (viewPager)
@@ -154,6 +162,16 @@ class ProfileFragment : Fragment() {
         viewPager2.clipChildren = false
         viewPager2.offscreenPageLimit = 10
         viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
+        viewPager2.setOnClickListener {
+            //Toast.makeText(this.context, "holi", Toast.LENGTH_SHORT).show()
+
+            // Start the animation
+            imageGallery.animate()
+                .alpha(0.0f)
+                .setDuration(400)
+            imageGallery.visibility = View.INVISIBLE
+        }
 
         //Custom transition between images
         var transf = ZoomOutPageTransformer()

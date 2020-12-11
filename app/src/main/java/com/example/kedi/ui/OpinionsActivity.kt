@@ -1,4 +1,4 @@
-package com.example.kedi
+package com.example.kedi.ui
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
+import com.example.kedi.R
 import kotlinx.android.synthetic.main.activity_opinions.*
 import kotlinx.android.synthetic.main.row_opinion.view.*
-import kotlinx.android.synthetic.main.row_petfunding.view.*
 
-class Opinions : AppCompatActivity() {
+class OpinionsActivity : AppCompatActivity() {
 
     private class Opinion(
         opinion: String,

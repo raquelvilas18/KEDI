@@ -1,9 +1,10 @@
-package com.example.kedi
+package com.example.kedi.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kedi.R
 
-class Chats : AppCompatActivity() {
+class ChatsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chats)

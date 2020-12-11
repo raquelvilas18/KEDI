@@ -59,7 +59,7 @@
         android:layout_marginTop="8dp"
         android:max="100"
         android:progress="20"
-        android:progressDrawable="@layout/curved_progress_bar"
+        android:progressDrawable="@drawable/curved_progress_bar"
         app:layout_constraintEnd_toEndOf="@+id/owner"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/description"

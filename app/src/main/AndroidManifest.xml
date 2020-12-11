@@ -19,7 +19,7 @@
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
-        <activity android:name=".login">
+        <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,16 +29,16 @@
             android:name=".ui.ImageGallery"
             android:label="@string/title_activity_image_gallery">
         </activity>
-        <activity android:name=".PetProfile" />
+        <activity android:name=".ui.PetProfileActivity" />
         <activity
             android:name=".Navigation"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Opinions" />
-        <activity android:name=".Chats" />
-        <activity android:name=".announcement" />
+        <activity android:name=".ui.OpinionsActivity" />
+        <activity android:name=".ui.ChatsActivity" />
+        <activity android:name=".ui.announcement" />
         <activity
-            android:name=".lista"
+            android:name=".ui.MainActivity"
             android:label="@string/title_activity_lista" />
     </application>
 
