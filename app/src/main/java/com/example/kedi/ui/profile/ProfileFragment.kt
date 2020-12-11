@@ -6,22 +6,99 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
+import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kedi.*
-import com.example.kedi.ui.announcements.AnnouncementsFragment
+import com.makeramen.roundedimageview.RoundedImageView
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_profile.viewPagerImageSlider
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
+private const val MIN_SCALE = 0.85f
+private const val MIN_ALPHA = 0.5f
 /**
  * A simple [Fragment] subclass.
  * Use the [ProfileFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class ProfileFragment : Fragment() {
+
+
+
+    class ZoomOutPageTransformer : ViewPager2.PageTransformer {
+
+        override fun transformPage(view: View, position: Float) {
+            view.apply {
+                val pageWidth = width
+                val pageHeight = height
+                when {
+                    position < -1 -> { // [-Infinity,-1)
+                        // This page is way off-screen to the left.
+                        alpha = 0f
+                    }
+                    position <= 1 -> { // [-1,1]
+                        // Modify the default slide transition to shrink the page as well
+                        val scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position))
+                        val vertMargin = pageHeight * (1 - scaleFactor) / 2
+                        val horzMargin = pageWidth * (1 - scaleFactor) / 2
+                        translationX = if (position < 0) {
+                            horzMargin - vertMargin / 2
+                        } else {
+                            horzMargin + vertMargin / 2
+                        }
+
+                        // Scale the page down (between MIN_SCALE and 1)
+                        scaleX = scaleFactor
+                        scaleY = scaleFactor
+
+                        // Fade the page relative to its size.
+                        alpha = (MIN_ALPHA +
+                                (((scaleFactor - MIN_SCALE) / (1 - MIN_SCALE)) * (1 - MIN_ALPHA)))
+                    }
+                    else -> { // (1,+Infinity]
+                        // This page is way off-screen to the right.
+                        alpha = 0f
+                    }
+                }
+            }
+        }
+    }
+
+
+    class ViewPagerAdapter(
+        private val sliderItems: List<Int>) :
+        RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder>() {
+
+        inner class Pager2ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+            val itemImage: ImageView = itemView.findViewById(R.id.imageSlide)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerAdapter.Pager2ViewHolder {
+            return Pager2ViewHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.image_slider_item,
+                    parent,
+                    false
+                )
+            )
+        }
+
+        override fun onBindViewHolder(holder: ViewPagerAdapter.Pager2ViewHolder, position: Int) {
+            holder.itemImage.setImageResource(sliderItems[position])
+        }
+
+        override fun getItemCount(): Int {
+            return sliderItems.size
+        }
+
+    }
+
+    lateinit var viewPager2: ViewPager2
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -51,10 +128,36 @@ class ProfileFragment : Fragment() {
             val intent = Intent(this.context, Opinions::class.java)
             startActivity(intent)
         }
+        //Go to pet profile by clicking on the pet image
         petImage?.setOnClickListener {
             val intent = Intent(this.context, PetProfile::class.java)
             startActivity(intent)
         }
+        //Show the image gallery by clicking on the porofile photo
+        imageProfile?.setOnClickListener {
+            imageGallery.visibility = View.VISIBLE
+        }
+
+        //Configure Image Gallery (viewPager)
+        viewPager2 = viewPagerImageSlider
+        var sliderItems = arrayListOf<Int>(
+            R.drawable.persona,
+            R.drawable.perfil4,
+            R.drawable.perfil1,
+            R.drawable.perfil2,
+            R.drawable.perfil3
+        )
+
+        viewPager2.adapter = ViewPagerAdapter(sliderItems)
+        viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        viewPager2.clipToPadding = false
+        viewPager2.clipChildren = false
+        viewPager2.offscreenPageLimit = 10
+        viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
+        //Custom transition between images
+        var transf = ZoomOutPageTransformer()
+        viewPager2.setPageTransformer( transf)
     }
 
     companion object {

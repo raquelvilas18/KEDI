@@ -17,4 +17,5 @@
     <color name="grade_green">#00bf33</color>
     <color name="grade_yellow">#ebcf00</color>
     <color name="grade_red">#ed2b00</color>
+    <color name="dark">#80000000</color>
 </resources>

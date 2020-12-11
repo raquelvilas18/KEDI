@@ -270,4 +270,39 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/imageGallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark"
+        android:padding="@dimen/box_inset_layout_padding"
+        android:visibility="invisible"
+        tools:context=".Navigation">
+
+        <ImageView
+            android:id="@+id/close_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerImageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:paddingStart="80dp"
+            android:paddingEnd="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

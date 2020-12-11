@@ -41,4 +41,10 @@
     <string name="a_1_km_de_ti">a 1 km de ti</string>
     <string name="santiago_de_compostela">Santiago de Compostela</string>
     <string name="_13">13€</string>
+    <string name="title_activity_image_gallery">ImageGallery</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

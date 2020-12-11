@@ -116,8 +116,8 @@ class AnnouncementsFragment : Fragment() {
         return root
     }
 
-    override fun onActivityCreated(state: Bundle?) {
-        super.onActivityCreated(state)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val listView = requireView().findViewById<View>(R.id.announcements_list) as ListView
         listView.adapter = getActivity()?.let { MyAdapter(it.getApplicationContext()) }
         listView.setOnItemClickListener { parent, view, position, id ->
@@ -127,6 +127,10 @@ class AnnouncementsFragment : Fragment() {
             intent.putExtra(ARG_IMG, element.img)//int
             startActivity(intent)
         }
+    }
+    override fun onActivityCreated(state: Bundle?) {
+        super.onActivityCreated(state)
+
     }
 
 

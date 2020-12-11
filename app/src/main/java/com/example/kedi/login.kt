@@ -15,6 +15,7 @@ class login : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+
         buttonLogin.setOnClickListener{
             val intent: Intent = Intent(this, lista::class.java)
             startActivity(intent)
