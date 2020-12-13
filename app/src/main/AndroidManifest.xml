@@ -19,7 +19,7 @@
             android:value="true" />
 
         <activity
-            android:name=".PetfundingActivity"
+            android:name=".ui.PetfundingActivity"
             android:label="@string/title_activity_petfunding">
         </activity>
         <activity android:name=".ui.LoginActivity">
@@ -29,14 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.ImageGallery"
-            android:label="@string/title_activity_image_gallery"></activity>
         <activity android:name=".ui.PetProfileActivity" />
-        <activity
-            android:name=".Navigation"
-            android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.OpinionsActivity" />
         <activity android:name=".ui.ChatsActivity" />
         <activity android:name=".ui.announcement" />

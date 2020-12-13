@@ -1,7 +1,8 @@
-package com.example.kedi
+package com.example.kedi.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.kedi.R
 
 class PetfundingActivity : AppCompatActivity() {
 
