@@ -75,12 +75,12 @@ class AnnouncementsFragment : Fragment() {
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val layoutInflater = LayoutInflater.from(mContext)
             val row_main =  layoutInflater.inflate(R.layout.row_announcements, p2, false)
-            val nameTextView = row_main.findViewById<TextView>(R.id.owner)
+            val nameTextView = row_main.findViewById<TextView>(R.id.petOwner)
             nameTextView.text = anuncios.get(p0).name
             val cityTextView = row_main.findViewById<TextView>(R.id.city)
             cityTextView.text = anuncios.get(p0).ciudad
 
-            val fecha0 = row_main.findViewById<TextView>(R.id.owner)
+            val fecha0 = row_main.findViewById<TextView>(R.id.date0)
             val format = SimpleDateFormat("dd MMM")
             fecha0.text = format.format(anuncios.get(p0).fechaInicio).toString().toUpperCase()
             val fecha1 = row_main.findViewById<TextView>(R.id.date1)

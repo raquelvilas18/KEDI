@@ -4,23 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_announcements"
+    android:paddingLeft="15dp"
     tools:context=".ui.announcements.AnnouncementsFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/transparent"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <!--android:background="#F7F7F7"-->
         <ListView
             android:id="@+id/announcements_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/background_gray"
             android:divider="@android:color/transparent"
             android:dividerHeight="10.0sp"
-            android:padding="18dp">
+            android:paddingLeft="5dp"
+            android:paddingTop="9dp">
 
         </ListView>
     </LinearLayout>

@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageCard" />
 
     <TextView
-        android:id="@+id/owner"
+        android:id="@+id/date0"
         android:layout_width="92dp"
         android:layout_height="27dp"
         android:layout_marginEnd="8dp"
@@ -60,7 +60,7 @@
         android:max="100"
         android:progress="20"
         android:progressDrawable="@drawable/curved_progress_bar"
-        app:layout_constraintEnd_toEndOf="@+id/owner"
+        app:layout_constraintEnd_toEndOf="@+id/date0"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/description"
         app:layout_constraintTop_toBottomOf="@+id/description" />
@@ -74,7 +74,7 @@
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/ownerPet"
-        app:layout_constraintTop_toBottomOf="@+id/owner" />
+        app:layout_constraintTop_toBottomOf="@+id/date0" />
 
     <TextView
         android:id="@+id/progressText"

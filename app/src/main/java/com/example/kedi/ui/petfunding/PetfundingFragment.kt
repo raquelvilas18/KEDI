@@ -1,6 +1,7 @@
 package com.example.kedi.ui.petfunding
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.kedi.R
+import com.example.kedi.ui.PetfundingActivity
 import kotlinx.android.synthetic.main.row_petfunding.view.*
 
 class PetfundingFragment : Fragment() {
@@ -60,8 +62,8 @@ class PetfundingFragment : Fragment() {
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val layoutInflater = LayoutInflater.from(mContext)
             val row_main =  layoutInflater.inflate(R.layout.row_petfunding, p2, false)
-            row_main.owner.text = petfundingItems.get(p0).title
-            row_main.owner.text = petfundingItems.get(p0).owner
+            row_main.date0.text = petfundingItems.get(p0).title
+            row_main.date0.text = petfundingItems.get(p0).owner
 
             row_main.progressBar.max = petfundingItems.get(p0).total
             row_main.progressBar.progress = petfundingItems.get(p0).progress
@@ -93,5 +95,10 @@ class PetfundingFragment : Fragment() {
         super.onActivityCreated(state)
         val listView = requireView().findViewById<View>(R.id.petfunding_list) as ListView
         listView.adapter = getActivity()?.let { PetfundingFragment.AdapterPetfunding(it.getApplicationContext()) }
+
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this.context, PetfundingActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
