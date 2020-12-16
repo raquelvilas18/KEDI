@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1440dp"
+    android:height="290.84dp"
+    android:viewportWidth="1440"
+    android:viewportHeight="290.84">
+  <path
+      android:pathData="M1440,32l-60,10.7C1320,53 1200,75 1080,112S840,203 720,240s-240,59 -360,48S120,235 60,213.3L0,192V0H1440Z"
+      android:fillColor="@color/petfunding_bg"/>
+</vector>

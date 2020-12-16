@@ -24,23 +24,24 @@
         app:navGraph="@navigation/mobile_navigation" />-->
 
 
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/icon"
         android:layout_width="30dp"
+        app:tint="@color/announcements"
         android:layout_height="30dp"
         android:scaleType="centerInside"
         android:src="@drawable/ic_kedi_vt"
         app:layout_constraintBottom_toBottomOf="@+id/menuIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/announcements" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
@@ -49,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:padding="8dp"
+
         android:layout_gravity="bottom"
         android:background="#FFFFFF"
         app:cnb_menuResource="@menu/bottom_nav_menu"
@@ -61,9 +63,11 @@
         android:layout_width="38dp"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/imenu"
-        tools:layout_editor_absoluteY="9dp" />
+        app:tint="#FFFFFF" />
 
     <ImageView
         android:id="@+id/chatIcon"
@@ -73,6 +77,7 @@
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/menuIcon"
         app:layout_constraintEnd_toEndOf="parent"
+        app:tint="#FFFFFF"
         app:srcCompat="@drawable/ichat" />
 
 

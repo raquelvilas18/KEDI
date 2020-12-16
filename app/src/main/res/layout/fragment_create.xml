@@ -7,16 +7,36 @@
     android:background="@drawable/gradient_create"
     tools:context=".ui.proposals.ProposalsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
+        android:id="@+id/imageView28"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:background="@drawable/wave_creat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/announcements"></ImageView>
+
+    <com.baoyachi.stepview.HorizontalStepView
+        android:id="@+id/horizontalStepView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="365dp"
+        android:layout_height="365dp"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="22dp"
         android:background="@drawable/ly_white_rounded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/horizontalStepView">
+
 
         <ImageView
             android:id="@+id/imageView7"
@@ -128,82 +148,17 @@
             app:layout_constraintStart_toStartOf="@+id/imageView13"
             app:layout_constraintTop_toBottomOf="@+id/imageView13" />
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Cuando lo necesitas?"
-            android:textColor="@color/create"
-            app:layout_constraintStart_toStartOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-        <EditText
-            android:id="@+id/fecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="date"
-            app:layout_constraintStart_toStartOf="@+id/textView16"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Selecciona un precio:"
-            android:textColor="@color/create"
-            app:layout_constraintStart_toStartOf="@+id/fecha"
-            app:layout_constraintTop_toBottomOf="@+id/fecha" />
-
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="173dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="number"
-            app:layout_constraintStart_toStartOf="@+id/textView17"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Descripción:"
-            android:textColor="@color/create"
-            app:layout_constraintStart_toStartOf="@+id/editTextNumber"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            android:layout_width="327dp"
-            android:layout_height="84dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            app:layout_constraintStart_toStartOf="@+id/textView18"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
             android:backgroundTint="@color/create"
-            android:text="Crear"
+            android:text="Siguiente"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+            app:layout_constraintTop_toBottomOf="@+id/textView15"
+            tools:layout_editor_absoluteX="0dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

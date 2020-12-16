@@ -4,24 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_petfunding"
     tools:context=".ui.petfunding.PetfundingFragment">
 
+    <ImageView
+        android:id="@+id/imageView28"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/wave_pet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/announcements"></ImageView>
     <LinearLayout
+        android:layout_marginTop="100dp"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ListView
+        <GridView
             android:id="@+id/petfunding_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gradient_petfunding"
+            android:numColumns="2"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
             android:divider="@android:color/transparent"
             android:dividerHeight="10.0sp"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp">
 
-        </ListView>
+        </GridView>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Donaciones directas:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/imageView28" />
 </androidx.constraintlayout.widget.ConstraintLayout>

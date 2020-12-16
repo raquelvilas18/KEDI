@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.GridView
 import android.widget.ImageView
 import android.widget.ListView
 import androidx.fragment.app.Fragment
@@ -41,7 +42,9 @@ class PetfundingFragment : Fragment() {
             PetfundingItem("Operación Limón", 200, 80 , "progape", false, R.drawable.prot3),
             PetfundingItem("Restaurar Galpón", 190 , 90 , "Refuxio Bando", false, R.drawable.prot5),
             PetfundingItem("Pintar Muro", 500 , 10 , "Progape", false, R.drawable.prot1),
-            PetfundingItem("Medicinas Michi", 58 , 20, "Protectora de Lugo", false, R.drawable.prot4)
+            PetfundingItem("Medicinas Michi", 58 , 20, "Protectora de Lugo", false, R.drawable.prot4),
+            PetfundingItem("Pintar Muro", 500 , 10 , "Progape", false, R.drawable.perro4),
+            PetfundingItem("Medicinas Michi", 58 , 20, "Protectora de Lugo", false, R.drawable.progape)
         )
 
         init {
@@ -62,11 +65,12 @@ class PetfundingFragment : Fragment() {
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val layoutInflater = LayoutInflater.from(mContext)
             val row_main =  layoutInflater.inflate(R.layout.row_petfunding, p2, false)
-            row_main.date0.text = petfundingItems.get(p0).title
-            row_main.date0.text = petfundingItems.get(p0).owner
+            /*row_main.date0.text = petfundingItems.get(p0).title
+            row_main.date0.text = petfundingItems.get(p0).owner*/
+            var pct = (petfundingItems.get(p0).progress.toFloat()/petfundingItems.get(p0).total.toFloat())*100
+            row_main.ownerPet.text = petfundingItems.get(p0).title
+            row_main.heart.background.setLevel((pct * 100).toInt())
 
-            row_main.progressBar.max = petfundingItems.get(p0).total
-            row_main.progressBar.progress = petfundingItems.get(p0).progress
 
             row_main.progressText.text = "${petfundingItems.get(p0).progress}/${petfundingItems.get(p0).total}€"
             val im = row_main.findViewById<ImageView>(R.id.image)
@@ -93,7 +97,7 @@ class PetfundingFragment : Fragment() {
 
     override fun onActivityCreated(state: Bundle?) {
         super.onActivityCreated(state)
-        val listView = requireView().findViewById<View>(R.id.petfunding_list) as ListView
+        val listView = requireView().findViewById<View>(R.id.petfunding_list) as GridView
         listView.adapter = getActivity()?.let { PetfundingFragment.AdapterPetfunding(it.getApplicationContext()) }
 
         listView.setOnItemClickListener { parent, view, position, id ->

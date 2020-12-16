@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:elevation="1dp"
+    android:outlineSpotShadowColor="@color/announcements"
+    android:outlineAmbientShadowColor="@color/announcements"
     android:background="@drawable/list_item"
 
     android:padding="1dp">
+
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:background="@drawable/ic_localitation"
-        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="@+id/imageCard"
-        app:layout_constraintStart_toStartOf="@+id/date0" />
+        app:layout_constraintStart_toStartOf="@+id/date0"
+        app:layout_constraintTop_toBottomOf="@+id/date0"
+
+        android:background="@drawable/ic_localitation"/>
 
     <TextView
         android:id="@+id/date0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/nunito"
         android:text="01 AUG"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/petOwner"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/petOwner" />
 
     <TextView
         android:id="@+id/date1"
@@ -33,7 +40,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito"
         android:text="13 AUG"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/date0" />
 
@@ -41,24 +48,23 @@
         android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="4dp"
         android:fontFamily="@font/nunito"
         android:text="@string/santiago_de_compostela"
         android:textSize="12sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/imageCard"
+        app:layout_constraintBottom_toBottomOf="@+id/distancia"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/distancia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
         android:fontFamily="@font/nunito"
         android:text="@string/a_1_km_de_ti"
         android:textColor="@color/announcements"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageCard"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintStart_toEndOf="@+id/imageView4" />
 
 
@@ -66,17 +72,25 @@
         android:id="@+id/imageView3"
         android:layout_width="22dp"
         android:layout_height="16dp"
-        android:contentDescription="@string/todo"
+        app:tint="@color/create"
         app:layout_constraintBottom_toBottomOf="@+id/date0"
         app:layout_constraintStart_toEndOf="@+id/date0"
         app:layout_constraintTop_toTopOf="@+id/date0"
-        app:srcCompat="@drawable/iflechader" />
+        android:background="@drawable/ic_rightarrow" />
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCard"
+        app:layout_constraintStart_toStartOf="@+id/date0"
+        app:layout_constraintTop_toBottomOf="@+id/date0"
+        android:background="@drawable/ic_ubication" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/imageCard"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="40dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +118,7 @@
             android:id="@+id/valoration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="1dp"
             android:fontFamily="@font/nunito"
             android:text="@string/_13"
             android:textColor="#FFFFFF"
