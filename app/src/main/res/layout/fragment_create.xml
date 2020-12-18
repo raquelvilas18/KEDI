@@ -17,25 +17,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/announcements"></ImageView>
 
-    <com.baoyachi.stepview.HorizontalStepView
+   <!-- <com.baoyachi.stepview.HorizontalStepView
         android:id="@+id/horizontalStepView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:elevation="3dp"
         android:layout_width="365dp"
         android:layout_height="365dp"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="22dp"
         android:background="@drawable/ly_white_rounded"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalStepView">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
@@ -51,7 +54,6 @@
             android:id="@+id/mascota"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             app:cardCornerRadius="80dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,34 +68,21 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Nuevo anuncio"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:text="Selecciona la mascota:"
             android:textColor="@color/create"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:text="Qué servicio necesitas?"
             android:textColor="@color/create"
             android:textSize="16sp"
@@ -150,15 +139,29 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@color/create"
+            android:textAllCaps="false"
+
+            android:layout_width="290dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ly_principal_button"
             android:text="Siguiente"
             android:textColor="#FFFFFF"
             app:layout_constraintTop_toBottomOf="@+id/textView15"
-            tools:layout_editor_absoluteX="0dp" />
+            tools:layout_editor_absoluteX="2dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/cabin"
+        android:text="Crear anuncio"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

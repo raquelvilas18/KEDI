@@ -37,7 +37,7 @@ class ProposalsFragment : Fragment() {
         super.onActivityCreated(state)
 
 
-        val setpview5 = requireView().findViewById<View>(R.id.horizontalStepView) as HorizontalStepView
+        /*val setpview5 = requireView().findViewById<View>(R.id.horizontalStepView) as HorizontalStepView
         val stepsBeanList: MutableList<StepBean> = ArrayList()
         val stepBean0 = StepBean("Tipo de Servicio", -1)
         val stepBean1 = StepBean("Información", -1)
@@ -91,7 +91,7 @@ class ProposalsFragment : Fragment() {
                     requireActivity(),
                     R.drawable.ic_baseline_add_circle_outline_24_orange
                 )
-            ) //设置StepsViewIndicator AttentionIcon
+            ) //设置StepsViewIndicator AttentionIcon*/
 
 
     }

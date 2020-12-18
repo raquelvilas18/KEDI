@@ -3,17 +3,25 @@ package com.example.kedi.ui.announcements
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.kedi.R
 import com.example.kedi.ui.ARG_IMG
 import com.example.kedi.ui.ARG_NAME
-import com.example.kedi.R
 import com.example.kedi.ui.announcement
+import kotlinx.android.synthetic.main.fragment_announcements.*
+import kotlinx.android.synthetic.main.row_announcements.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,7 +30,7 @@ class AnnouncementsFragment : Fragment() {
 
 
     private lateinit var announcementsViewModel: AnnouncementsViewModel
-
+private lateinit var listAdapter: AnnouncementsAdapter
     public class Anuncio (
         name: String,
         price: Int,
@@ -40,7 +48,39 @@ class AnnouncementsFragment : Fragment() {
         var img = img
     }
 
-    private class MyAdapter(context: Context): BaseAdapter(){
+    class AnnouncementViewHolder constructor(
+        itemView: View): RecyclerView.ViewHolder(itemView){
+            val announcement_image: ImageView = itemView.image
+            val announcement_tittle:TextView = itemView.petOwner
+            val announcement_date0:TextView = itemView.date0
+            val announcement_date1:TextView = itemView.date1
+            val announcement_price:TextView = itemView.valoration
+            val announcement_city:TextView = itemView.city
+            val row:ConstraintLayout = itemView.row
+
+        fun bind(anuncio: Anuncio, context: Context){
+
+            announcement_tittle.text = anuncio.name
+            announcement_city.text = anuncio.ciudad
+            announcement_price.text = "${anuncio.price}€"
+
+            val format = SimpleDateFormat("dd MMM")
+            announcement_date0.text = format.format(anuncio.fechaInicio).toString().toUpperCase()
+            announcement_date1.text = format.format(anuncio.fechaFin).toString().toUpperCase()
+            announcement_image.setImageResource(anuncio.img)
+            itemView.setOnClickListener({
+                val intent = Intent(context, announcement::class.java)
+                intent.putExtra(ARG_NAME, anuncio.name)
+                intent.putExtra(ARG_IMG, anuncio.img)//int
+                startActivity(context, intent, null)
+            })
+        }
+        }
+
+
+
+
+    private class AnnouncementsAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
         private val mContext: Context
         private val anuncios = arrayListOf<Anuncio>(
@@ -60,40 +100,25 @@ class AnnouncementsFragment : Fragment() {
         init {
             mContext = context
         }
-        override fun getCount(): Int {
+        override fun getItemCount(): Int {
             return anuncios.size;
         }
 
-        override fun getItem(p0: Int): Any {
-            return anuncios.get(p0)
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+            return AnnouncementViewHolder(
+                LayoutInflater.from(mContext).inflate(R.layout.row_announcements, parent, false)
+            )
         }
 
-        override fun getItemId(p0: Int): Long {
-            return p0.toLong()
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            when(holder){
+                is AnnouncementViewHolder ->{
+                    holder.row.animation = AnimationUtils.loadAnimation(mContext, R.anim.item_animation_fall_down)
+                    holder.bind(anuncios.get(position), mContext)
+                }
+            }
         }
 
-        override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-            val layoutInflater = LayoutInflater.from(mContext)
-            val row_main =  layoutInflater.inflate(R.layout.row_announcements, p2, false)
-            val nameTextView = row_main.findViewById<TextView>(R.id.petOwner)
-            nameTextView.text = anuncios.get(p0).name
-            val cityTextView = row_main.findViewById<TextView>(R.id.city)
-            cityTextView.text = anuncios.get(p0).ciudad
-
-            val fecha0 = row_main.findViewById<TextView>(R.id.date0)
-            val format = SimpleDateFormat("dd MMM")
-            fecha0.text = format.format(anuncios.get(p0).fechaInicio).toString().toUpperCase()
-            val fecha1 = row_main.findViewById<TextView>(R.id.date1)
-            fecha1.text = format.format(anuncios.get(p0).fechaFin).toString().toUpperCase()
-
-            val price = row_main.findViewById<TextView>(R.id.valoration)
-            price.text = anuncios.get(p0).price.toString() + "€"
-
-
-            val im = row_main.findViewById<ImageView>(R.id.image)
-            im.setImageResource(anuncios.get(p0).img)
-            return row_main
-        }
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -113,18 +138,23 @@ class AnnouncementsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val listView = requireView().findViewById<View>(R.id.announcements_list) as ListView
-        listView.adapter = getActivity()?.let { MyAdapter(it.getApplicationContext()) }
+        initRecyclerView()
+       /* val listView = requireView().findViewById<View>(R.id.announcements_list) as RecyclerView
+        listView.adapter = activity?.let { AnnouncementsAdapter(it.getApplicationContext()) }
         listView.setOnItemClickListener { parent, view, position, id ->
             val element:Anuncio = listView.adapter.getItem(position) as Anuncio
             val intent = Intent(this.context, announcement::class.java)
             intent.putExtra(ARG_NAME, element.name)
             intent.putExtra(ARG_IMG, element.img)//int
             startActivity(intent)
-        }
+        }*/
     }
-    override fun onActivityCreated(state: Bundle?) {
-        super.onActivityCreated(state)
+
+    private fun initRecyclerView(){
+        val recycler_view = requireView().findViewById<View>(R.id.announcements_list) as RecyclerView
+        announcements_list.layoutManager = LinearLayoutManager(context)
+        listAdapter = AnnouncementsAdapter(requireContext())
+        announcements_list.adapter = listAdapter
 
     }
 
