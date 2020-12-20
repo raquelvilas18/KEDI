@@ -1,16 +1,20 @@
 package com.example.kedi.ui.announcements
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.Layout
+import android.util.Pair.create
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -31,7 +35,7 @@ class AnnouncementsFragment : Fragment() {
 
     private lateinit var announcementsViewModel: AnnouncementsViewModel
 private lateinit var listAdapter: AnnouncementsAdapter
-    public class Anuncio (
+    public class Anuncio(
         name: String,
         price: Int,
         fechaInicio: Date,
@@ -49,14 +53,16 @@ private lateinit var listAdapter: AnnouncementsAdapter
     }
 
     class AnnouncementViewHolder constructor(
-        itemView: View): RecyclerView.ViewHolder(itemView){
+        itemView: View
+    ): RecyclerView.ViewHolder(itemView){
             val announcement_image: ImageView = itemView.image
+            val announcement_bg: ConstraintLayout = itemView.bg_card
+            val announcement_image_card : CardView = itemView.imageCard
             val announcement_tittle:TextView = itemView.petOwner
             val announcement_date0:TextView = itemView.date0
             val announcement_date1:TextView = itemView.date1
             val announcement_price:TextView = itemView.valoration
             val announcement_city:TextView = itemView.city
-            val row:ConstraintLayout = itemView.row
 
         fun bind(anuncio: Anuncio, context: Context){
 
@@ -70,9 +76,18 @@ private lateinit var listAdapter: AnnouncementsAdapter
             announcement_image.setImageResource(anuncio.img)
             itemView.setOnClickListener({
                 val intent = Intent(context, announcement::class.java)
+                val activity = context as Activity
+                val p = androidx.core.util.Pair(announcement_bg as View?, ViewCompat.getTransitionName(announcement_bg)) as androidx.core.util.Pair<View, String>
+                val p2 = androidx.core.util.Pair(announcement_image_card as View?, ViewCompat.getTransitionName(announcement_image_card))as androidx.core.util.Pair<View, String>
+                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        activity, p2
+                    )
+
                 intent.putExtra(ARG_NAME, anuncio.name)
                 intent.putExtra(ARG_IMG, anuncio.img)//int
-                startActivity(context, intent, null)
+                if (options != null) {
+                    startActivity(context, intent, options.toBundle())
+                }
             })
         }
         }
@@ -112,8 +127,11 @@ private lateinit var listAdapter: AnnouncementsAdapter
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             when(holder){
-                is AnnouncementViewHolder ->{
-                    holder.row.animation = AnimationUtils.loadAnimation(mContext, R.anim.item_animation_fall_down)
+                is AnnouncementViewHolder -> {
+                    holder.announcement_bg.animation = AnimationUtils.loadAnimation(
+                        mContext,
+                        R.anim.item_animation_fall_down
+                    )
                     holder.bind(anuncios.get(position), mContext)
                 }
             }

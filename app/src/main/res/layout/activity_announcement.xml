@@ -4,8 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_gray"
+    android:background="@drawable/gradient_announcements"
     tools:context=".ui.announcement">
+
+    <ImageView
+        android:id="@+id/back_btn2"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/wave_ann"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
@@ -60,6 +79,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="392dp"
+        android:id="@+id/bg_card"
+        android:transitionName="row_card"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
@@ -71,19 +92,20 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView6">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView7"
+            android:id="@+id/imageCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:cardCornerRadius="90dp"
+            app:cardCornerRadius="120dp"
+            android:transitionName="image_row"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imagePet"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
@@ -136,7 +158,7 @@
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
             app:layout_constraintEnd_toEndOf="@+id/tittle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView7" />
+            app:layout_constraintTop_toBottomOf="@+id/imageCard" />
 
         <TextView
             android:id="@+id/textView29"

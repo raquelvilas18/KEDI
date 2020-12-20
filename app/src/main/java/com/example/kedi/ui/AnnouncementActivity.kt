@@ -20,13 +20,10 @@ class announcement : AppCompatActivity() {
         //val obj_anuncio: AnnouncementsFragment.Anuncio = intent.getSerializableExtra(ARG_NAME) as AnnouncementsFragment.Anuncio
         setAnnouncementData();
 
-        //actionbar
-        val actionbar = supportActionBar
-        //set actionbar title
-        actionbar!!.title = "Anuncio"
-        //set back button
-        actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.hide()
+        back_btn2.setOnClickListener{
+            this.finish()
+        }
     }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
