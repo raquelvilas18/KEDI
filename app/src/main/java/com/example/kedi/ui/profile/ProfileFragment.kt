@@ -2,35 +2,31 @@ package com.example.kedi.ui.profile
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.kedi.*
+import com.example.kedi.R
 import com.example.kedi.ui.OpinionsActivity
 import com.example.kedi.ui.PetProfileActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
-import kotlinx.android.synthetic.main.fragment_profile.viewPagerImageSlider
 
 // TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+// the fragment initialization parameters
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 private const val MIN_SCALE = 0.85f
 private const val MIN_ALPHA = 0.5f
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
+
 class ProfileFragment : Fragment() {
 
-
-
     class ZoomOutPageTransformer : ViewPager2.PageTransformer {
+        //class used to show the profile images and change with zoom effect (used when the profile
+        //photo is clicked)
 
         override fun transformPage(view: View, position: Float) {
             view.apply {
@@ -71,14 +67,18 @@ class ProfileFragment : Fragment() {
 
 
     class ViewPagerAdapter(
-        private val sliderItems: List<Int>) :
+        private val sliderItems: List<Int>
+    ) :
         RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder>() {
 
-        inner class Pager2ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        inner class Pager2ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val itemImage: ImageView = itemView.findViewById(R.id.imageSlide)
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerAdapter.Pager2ViewHolder {
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+        ): ViewPagerAdapter.Pager2ViewHolder {
             return Pager2ViewHolder(
                 LayoutInflater.from(parent.context).inflate(
                     R.layout.item_image_slider,
@@ -112,23 +112,30 @@ class ProfileFragment : Fragment() {
         }
 
 
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
 
     }
+
     override fun onActivityCreated(state: Bundle?) {
         super.onActivityCreated(state)
+
+        configureListeners()
+
+        configureImageGallery()
+    }
+
+    private fun configureListeners(){
         opinions?.setOnClickListener {
             val intent = Intent(this.context, OpinionsActivity::class.java)
             startActivity(intent)
         }
+
         //Go to pet profile by clicking on the pet image
         petImage?.setOnClickListener {
             val intent = Intent(this.context, PetProfileActivity::class.java)
@@ -145,16 +152,23 @@ class ProfileFragment : Fragment() {
                 .setDuration(400)
                 .setListener(null);
         }
+    }
 
-        //Configure Image Gallery (viewPager)
-        viewPager2 = viewPagerImageSlider
-        var sliderItems = arrayListOf<Int>(
+    private fun getProfileImages(): ArrayList<Int> {
+        //todo: get real data from back
+        //mocked data
+        return arrayListOf<Int>(
             R.drawable.persona,
             R.drawable.perfil4,
             R.drawable.perfil1,
             R.drawable.perfil2,
             R.drawable.perfil3
         )
+    }
+    private fun configureImageGallery(){
+        //Configure Image Gallery (viewPager)
+        viewPager2 = viewPagerImageSlider
+        var sliderItems = getProfileImages()
 
         viewPager2.adapter = ViewPagerAdapter(sliderItems)
         viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -164,8 +178,6 @@ class ProfileFragment : Fragment() {
         viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
         viewPager2.setOnClickListener {
-            //Toast.makeText(this.context, "holi", Toast.LENGTH_SHORT).show()
-
             // Start the animation
             imageGallery.animate()
                 .alpha(0.0f)
@@ -175,7 +187,7 @@ class ProfileFragment : Fragment() {
 
         //Custom transition between images
         var transf = ZoomOutPageTransformer()
-        viewPager2.setPageTransformer( transf)
+        viewPager2.setPageTransformer(transf)
     }
 
     companion object {

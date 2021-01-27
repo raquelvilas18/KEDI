@@ -1,7 +1,7 @@
 package com.example.kedi.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kedi.R
 import kotlinx.android.synthetic.main.activity_announcement.*
 
@@ -9,7 +9,6 @@ const val ARG_IMG = "arg_img"
 const val ARG_NAME = "arg_name"
 const val ARG_INIT = "arg_init"
 const val ARG_END = "arg_end"
-
 
 
 class announcement : AppCompatActivity() {
@@ -21,21 +20,22 @@ class announcement : AppCompatActivity() {
         setAnnouncementData();
 
         supportActionBar?.hide()
-        back_btn2.setOnClickListener{
+        back_btn2.setOnClickListener {
             this.finish()
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
 
-    fun setAnnouncementData(){
+    fun setAnnouncementData() {
         //imagePet.background = anuncio.img as Drawable;
-        val profileName=intent.getStringExtra(ARG_NAME)
+        val profileName = intent.getStringExtra(ARG_NAME)
         tittle.text = "Acogida de ${profileName}"
 
-        val img=intent.extras?.get(ARG_IMG) as Int
+        val img = intent.extras?.get(ARG_IMG) as Int
         imagePet.setImageResource(img)
         /*val format = SimpleDateFormat("dd MMM")
         initDate.text = format.format(anuncio.fechaInicio).toString().toUpperCase()

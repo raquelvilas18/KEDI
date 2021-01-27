@@ -1,11 +1,10 @@
 package com.example.kedi.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kedi.R
 import kotlinx.android.synthetic.main.activity_pet_profile.*
-import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.petImage
 
 class PetProfileActivity : AppCompatActivity() {
@@ -15,13 +14,14 @@ class PetProfileActivity : AppCompatActivity() {
 
         configureListeners()
     }
-    private fun configureListeners(){
+
+    private fun configureListeners() {
         petImage?.setOnClickListener {
             val intent = Intent(this, PetProfileActivity::class.java)
             startActivity(intent)
         }
 
-        back_btn?.setOnClickListener{
+        back_btn?.setOnClickListener {
             this.finish()
         }
     }

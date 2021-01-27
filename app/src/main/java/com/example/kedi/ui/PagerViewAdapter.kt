@@ -3,10 +3,10 @@ package com.example.kedi.ui
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.kedi.ui.announcements.AnnouncementsFragment;
-import com.example.kedi.ui.proposals.ProposalsFragment;
-import com.example.kedi.ui.petfunding.PetfundingFragment;
-import com.example.kedi.ui.profile.ProfileFragment;
+import com.example.kedi.ui.announcements.AnnouncementsFragment
+import com.example.kedi.ui.petfunding.PetfundingFragment
+import com.example.kedi.ui.profile.ProfileFragment
+import com.example.kedi.ui.proposals.ProposalsFragment
 
 internal class PagerViewAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm!!) {
     var list = ArrayList<String>()
