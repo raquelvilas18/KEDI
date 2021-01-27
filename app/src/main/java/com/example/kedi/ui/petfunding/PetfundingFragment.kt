@@ -1,5 +1,6 @@
 package com.example.kedi.ui.petfunding
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,12 +10,15 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.GridView
 import android.widget.ImageView
-import android.widget.ListView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.kedi.R
-import com.example.kedi.ui.PetfundingActivity
+import com.example.kedi.ui.*
+import kotlinx.android.synthetic.main.fragment_petfunding.*
+import kotlinx.android.synthetic.main.row_petfunding.*
 import kotlinx.android.synthetic.main.row_petfunding.view.*
 
 class PetfundingFragment : Fragment() {
@@ -39,7 +43,7 @@ class PetfundingFragment : Fragment() {
 
         private val mContext: Context
         private val petfundingItems = arrayListOf<PetfundingItem>(
-            PetfundingItem("Operación Limón", 200, 80 , "progape", false, R.drawable.prot3),
+            PetfundingItem("Operación Limón", 200, 180 , "progape", false, R.drawable.prot3),
             PetfundingItem("Restaurar Galpón", 190 , 90 , "Refuxio Bando", false, R.drawable.prot5),
             PetfundingItem("Pintar Muro", 500 , 10 , "Progape", false, R.drawable.prot1),
             PetfundingItem("Medicinas Michi", 58 , 20, "Protectora de Lugo", false, R.drawable.prot4),
@@ -62,6 +66,7 @@ class PetfundingFragment : Fragment() {
             return p0.toLong()
         }
 
+
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val layoutInflater = LayoutInflater.from(mContext)
             val row_main =  layoutInflater.inflate(R.layout.row_petfunding, p2, false)
@@ -69,7 +74,7 @@ class PetfundingFragment : Fragment() {
             row_main.date0.text = petfundingItems.get(p0).owner*/
             var pct = (petfundingItems.get(p0).progress.toFloat()/petfundingItems.get(p0).total.toFloat())*100
             row_main.ownerPet.text = petfundingItems.get(p0).title
-            row_main.heart.background.setLevel((pct * 100).toInt())
+            row_main.button.background.setLevel((pct * 100).toInt())
 
 
             row_main.progressText.text = "${petfundingItems.get(p0).progress}/${petfundingItems.get(p0).total}€"
@@ -102,7 +107,17 @@ class PetfundingFragment : Fragment() {
 
         listView.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this.context, PetfundingActivity::class.java)
-            startActivity(intent)
+            val activity = context as Activity
+            val p2 = androidx.core.util.Pair(view.button as View?, ViewCompat.getTransitionName(view.button ))
+            val p = androidx.core.util.Pair(view.card_petfunding as View?, ViewCompat.getTransitionName(view.card_petfunding ))
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                activity, p2
+            )
+
+            val item = listView.adapter.getItem(position) as PetfundingItem
+            intent.putExtra(ARG_GOAL, item.total)
+            intent.putExtra(ARG_PROGRESS, item.progress)//int
+            startActivity(intent, options.toBundle())
         }
     }
 }

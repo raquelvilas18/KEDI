@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Pair.create
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +15,6 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -147,29 +145,15 @@ private lateinit var listAdapter: AnnouncementsAdapter
         announcementsViewModel =
             ViewModelProviders.of(this).get(AnnouncementsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_announcements, container, false)
-        //val textView: TextView = root.findViewById(R.id.text_dashboard)
-        announcementsViewModel.text.observe(viewLifecycleOwner, Observer {
-            //textView.text = it
-        })
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-       /* val listView = requireView().findViewById<View>(R.id.announcements_list) as RecyclerView
-        listView.adapter = activity?.let { AnnouncementsAdapter(it.getApplicationContext()) }
-        listView.setOnItemClickListener { parent, view, position, id ->
-            val element:Anuncio = listView.adapter.getItem(position) as Anuncio
-            val intent = Intent(this.context, announcement::class.java)
-            intent.putExtra(ARG_NAME, element.name)
-            intent.putExtra(ARG_IMG, element.img)//int
-            startActivity(intent)
-        }*/
     }
 
     private fun initRecyclerView(){
-        val recycler_view = requireView().findViewById<View>(R.id.announcements_list) as RecyclerView
         announcements_list.layoutManager = LinearLayoutManager(context)
         listAdapter = AnnouncementsAdapter(requireContext())
         announcements_list.adapter = listAdapter

@@ -11,7 +11,6 @@ import com.example.kedi.ui.profile.ProfileFragment;
 internal class PagerViewAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm!!) {
     var list = ArrayList<String>()
 
-
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {

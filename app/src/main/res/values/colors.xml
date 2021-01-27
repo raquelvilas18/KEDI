@@ -2,8 +2,8 @@
 <resources>
     <color name="colorPrimary">#F29441</color>
     <color name="colorSecondary">#70F29441</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimaryDark">#F5615A</color>
+    <color name="colorAccent">#72a8bc</color>
     <color name="announcements">#e38232</color>
     <color name="announcements_bg1">#60e38232</color>
     <color name="announcements_bg">#30e38232</color>

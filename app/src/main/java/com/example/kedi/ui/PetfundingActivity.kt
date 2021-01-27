@@ -1,7 +1,6 @@
 package com.example.kedi.ui
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
@@ -11,11 +10,14 @@ import android.widget.GridView
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kedi.R
+import kotlinx.android.synthetic.main.activity_petfunding.*
 import pereira.agnaldo.previewimgcol.ImageCollectionView
 
+const val ARG_GOAL = "arg_pet_goal"
+const val ARG_PROGRESS = "arg_pet_progress"
+const val ARG_IMG_PET = "arg_pet_img"
 
 class PetfundingActivity : AppCompatActivity() {
-
     class CardAdapter(var context : Context, var arrayList: ArrayList<Int>): BaseAdapter(){
         override fun getCount(): Int {
             return arrayList.size
@@ -44,42 +46,26 @@ class PetfundingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_petfunding)
+        supportActionBar?.hide()
 
         //Set the mosaic of images
-        var collectionView =  findViewById(R.id.imageCollectionView) as ImageCollectionView;
-        val icon = BitmapFactory.decodeResource(
-            this.getResources(),
-            R.drawable.prot1
-        )
-        val icon2 = BitmapFactory.decodeResource(
-            this.getResources(),
-            R.drawable.prot2
-        )
-        val icon3 = BitmapFactory.decodeResource(
-            this.getResources(),
-            R.drawable.prot3
-        )
-        val icon4 = BitmapFactory.decodeResource(
-            this.getResources(),
-            R.drawable.prot4
-        )
-        val icon5 = BitmapFactory.decodeResource(
-            this.getResources(),
-            R.drawable.prot4
-        )
-        collectionView.addImage(icon);
-        collectionView.addImage(icon2);
-        collectionView.addImage(icon3);
-        collectionView.addImage(icon4);
-        collectionView.addImage(icon5);
+        createImageCollection()
+        setGridOfDonaters()
+    }
 
-
-        //Set the recucler view of donaters
+    private fun setGridOfDonaters(){
+        //Set the recycler view of donaters
         var gridView:GridView = findViewById(R.id.donnaters)
-        var list = arrayListOf<Int>(R.drawable.perfil4,
-        R.drawable.perfil3,
-        R.drawable.perfil2,
-        R.drawable.perfil1,
+        var donatorsList = getDonatorsImages()
+        cardAdapter = CardAdapter(applicationContext, donatorsList)
+        gridView.adapter = cardAdapter
+    }
+    private fun getDonatorsImages(): ArrayList<Int> {
+        //mocked Data
+        return arrayListOf<Int>(R.drawable.perfil4,
+            R.drawable.perfil3,
+            R.drawable.perfil2,
+            R.drawable.perfil1,
             R.drawable.perfil4,
             R.drawable.perfil3,
             R.drawable.perfil2,
@@ -102,10 +88,34 @@ class PetfundingActivity : AppCompatActivity() {
             R.drawable.perfil4,
             R.drawable.perfil3,
             R.drawable.perfil2)
-        cardAdapter = CardAdapter(applicationContext, list)
-        gridView.adapter = cardAdapter
+    }
 
+    private fun createImageCollection(){
+        val drawables = getMosaicImages()
+        //Set the mosaic of images
+        var collectionView =  findViewById(R.id.imageCollectionView) as ImageCollectionView;
+        for (draw in drawables){
+            var icon = BitmapFactory.decodeResource(
+                this.getResources(),
+                draw
+            )
+            collectionView.addImage(icon);
+        }
+    }
 
+    private fun getMosaicImages(): ArrayList<Int> {
+        //Mocked data
+        return arrayListOf(R.drawable.prot4, R.drawable.prot3, R.drawable.prot2, R.drawable.prot1)
+    }
+
+    private fun setPetfundingData(){
+        //Get data from params
+        val max=intent.extras?.get(ARG_GOAL) as Int
+        val progress=intent.extras?.get(ARG_PROGRESS) as Int
+        val percentage = (progress.toFloat()/max.toFloat()) *100
+        button2.background.setLevel((percentage * 100).toInt())
+        button.startRippleAnimation();
+        progressText.text = "${progress}/${max}€"
     }
 
 }

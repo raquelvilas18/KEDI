@@ -26,15 +26,19 @@ class OpinionsActivity : AppCompatActivity() {
         var img = img
     }
 
-    private class AdapterOpinion(context: Context): BaseAdapter(){
-
-        private val mContext: Context
-        private val opinions = arrayListOf<Opinion>(
+    private fun getOpinions(): ArrayList<Opinion> {
+        return arrayListOf<Opinion>(
             Opinion("Todo genia, cuido perfecto de mi gato y mandó muchisimas fotos para que estuvieramos en contacto", 5, "Martín López" , R.drawable.perfil1),
             Opinion("Todo genial, se encargó perfecto", 4 , "Marta Alvarez", R.drawable.perfil2),
             Opinion("Estuvo paseando a mi perro por una semana, siempre fue puntual y muy amable", 5 , "María Lata" ,  R.drawable.perfil3),
             Opinion("Perfecto", 3 , "Juan Villar", R.drawable.perfil4)
         )
+    }
+
+    private class AdapterOpinion(context: Context): BaseAdapter(){
+
+        private val mContext: Context
+        private val opinions = getOpinions()
 
         init {
             mContext = context
@@ -63,6 +67,8 @@ class OpinionsActivity : AppCompatActivity() {
             return row_main
         }
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

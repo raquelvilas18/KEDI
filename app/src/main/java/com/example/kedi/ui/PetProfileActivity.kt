@@ -13,9 +13,9 @@ class PetProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pet_profile)
 
-        supportActionBar?.hide()
-        //set back button
-
+        configureListeners()
+    }
+    private fun configureListeners(){
         petImage?.setOnClickListener {
             val intent = Intent(this, PetProfileActivity::class.java)
             startActivity(intent)
@@ -25,6 +25,7 @@ class PetProfileActivity : AppCompatActivity() {
             this.finish()
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
