@@ -155,14 +155,14 @@ class ProfileFragment : Fragment() {
     }
 
     private fun getProfileImages(): ArrayList<Int> {
-        //todo: get real data from back
+        //todo: get real data from img_back
         //mocked data
         return arrayListOf<Int>(
-            R.drawable.persona,
-            R.drawable.perfil4,
-            R.drawable.perfil1,
-            R.drawable.perfil2,
-            R.drawable.perfil3
+            R.drawable.img_persona,
+            R.drawable.img_perfil4,
+            R.drawable.img_perfil1,
+            R.drawable.img_perfil2,
+            R.drawable.img_perfil3
         )
     }
     private fun configureImageGallery(){

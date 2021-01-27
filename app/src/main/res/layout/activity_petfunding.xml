@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_petfunding"
+    android:background="@drawable/sh_gradient_petfunding"
     tools:context=".ui.PetfundingActivity"
     >
 
@@ -36,7 +36,7 @@
         android:id="@+id/imageView28"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="@drawable/wave_pet"
+        android:background="@drawable/vt_wave_pet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -138,7 +138,7 @@
                 android:id="@+id/button2"
                 android:layout_width="307dp"
                 android:layout_height="321dp"
-                android:background="@drawable/progress_heart"
+                android:background="@drawable/layer_progress_heart"
                 android:transitionName="heart_transition"
                 android:layout_centerInParent="true"></ImageView>
         </com.skyfishjy.library.RippleBackground>
@@ -213,7 +213,7 @@
             android:layout_height="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button"
-            app:srcCompat="@drawable/ilocalizacion"
+            app:srcCompat="@drawable/ic_localizacion"
             app:tint="@color/petfunding" />
 
         <TextView

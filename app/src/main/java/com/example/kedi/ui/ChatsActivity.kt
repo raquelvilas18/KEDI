@@ -9,7 +9,7 @@ class ChatsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chats)
         supportActionBar!!.title = "Chats"
-        //set back button
+        //set img_back button
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 

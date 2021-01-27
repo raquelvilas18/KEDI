@@ -39,22 +39,22 @@ class OpinionsActivity : AppCompatActivity() {
 
         private fun getOpinions(): ArrayList<Opinion> {
             //Mocked data
-            //Todo: get real opinions from back
+            //Todo: get real opinions from img_back
             return arrayListOf<Opinion>(
                 Opinion(
                     "Todo genia, cuido perfecto de mi gato y mandó muchisimas fotos para que estuvieramos en contacto",
                     5,
                     "Martín López",
-                    R.drawable.perfil1
+                    R.drawable.img_perfil1
                 ),
-                Opinion("Todo genial, se encargó perfecto", 4, "Marta Alvarez", R.drawable.perfil2),
+                Opinion("Todo genial, se encargó perfecto", 4, "Marta Alvarez", R.drawable.img_perfil2),
                 Opinion(
                     "Estuvo paseando a mi perro por una semana, siempre fue puntual y muy amable",
                     5,
                     "María Lata",
-                    R.drawable.perfil3
+                    R.drawable.img_perfil3
                 ),
-                Opinion("Perfecto", 3, "Juan Villar", R.drawable.perfil4)
+                Opinion("Perfecto", 3, "Juan Villar", R.drawable.img_perfil4)
             )
         }
 
@@ -91,7 +91,7 @@ class OpinionsActivity : AppCompatActivity() {
 
     private fun configureActivity(){
         supportActionBar!!.title = "Opiniones"
-        //set back button
+        //set img_back button
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         listView.adapter = AdapterOpinion(this)

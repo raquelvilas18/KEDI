@@ -9,7 +9,7 @@ import androidx.core.view.GravityCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.kedi.R
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_lista.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_lista)
         try {
             this.supportActionBar!!.hide()
         } catch (e: NullPointerException) {

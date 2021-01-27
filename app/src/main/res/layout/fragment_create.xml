@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_create"
+    android:background="@drawable/sh_gradient_create"
     tools:context=".ui.proposals.ProposalsFragment">
 
     <ImageView
         android:id="@+id/imageView28"
         android:layout_width="match_parent"
         android:layout_height="86dp"
-        android:background="@drawable/wave_creat"
+        android:background="@drawable/vt_wave_creat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -64,7 +64,7 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/gato2" />
+                android:src="@drawable/img_gato2" />
         </androidx.cardview.widget.CardView>
 
         <TextView

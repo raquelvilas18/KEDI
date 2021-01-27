@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:elevation="2dp"
     android:padding="10dp"
-    android:background="@drawable/list_item2">
+    android:background="@drawable/sh_list_item2">
 
 
     <TextView
@@ -60,7 +60,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="-5dp"
         android:transitionName="heart_transition"
-        android:background="@drawable/progress_heart"
+        android:background="@drawable/layer_progress_heart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ownerPet"></ImageView>

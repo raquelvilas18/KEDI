@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_petfunding"
+    android:background="@drawable/sh_gradient_petfunding"
     tools:context=".ui.petfunding.PetfundingFragment">
 
     <ImageView
         android:id="@+id/imageView28"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="@drawable/wave_pet"
+        android:background="@drawable/vt_wave_pet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

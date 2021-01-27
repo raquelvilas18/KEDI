@@ -15,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.supportActionBar!!.hide()
-        hideLoadingDialog()
+        configureLoadingDialog()
 
         setContentView(R.layout.activity_login)
         setListeners()
@@ -43,15 +43,19 @@ class LoginActivity : AppCompatActivity() {
     private fun checkLogin(email: String, password: String): Boolean{
         //todo: check login on backend
         showLoadingDialog()
+        hideLoadingDialog()
         return true
     }
 
-    private fun showLoadingDialog(){
+    private fun configureLoadingDialog(){
         loadingDialog = ProgressDialog(this)
         loadingDialog.setMessage("Loading..")
-        loadingDialog.setTitle("Get Data")
+        loadingDialog.setTitle("Comprobando datos..")
         loadingDialog.isIndeterminate = false
         loadingDialog.setCancelable(true)
+    }
+
+    private fun showLoadingDialog(){
         loadingDialog.show()
     }
 

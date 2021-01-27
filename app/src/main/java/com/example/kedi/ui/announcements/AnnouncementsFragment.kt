@@ -108,19 +108,19 @@ class AnnouncementsFragment : Fragment() {
 
         private fun getAnnouncements(): ArrayList<Announcement> {
             //Mocked data
-            //Todo: get real announcements from back
+            //Todo: get real announcements from img_back
             return arrayListOf<Announcement>(
-                Announcement("Limón", 20, Date(), Date(), "Santiago de Compostela", R.drawable.ph_gato1),
-                Announcement("Ron", 16, Date(), Date(), "Santiago de Compostela", R.drawable.perro1),
-                Announcement("Cuba", 18, Date(), Date(), "Milladoiro", R.drawable.gato2),
-                Announcement("Michi", 27, Date(), Date(), "Bertamirans", R.drawable.perro2),
-                Announcement("Leon", 30, Date(), Date(), "Santiago de Compostela", R.drawable.perro3),
-                Announcement("Chile", 20, Date(), Date(), "Milladoiro", R.drawable.perro4),
-                Announcement("Cuba", 18, Date(), Date(), "Milladoiro", R.drawable.gato2),
-                Announcement("Michi", 27, Date(), Date(), "Bertamirans", R.drawable.perro2),
-                Announcement("Leon", 30, Date(), Date(), "Santiago de Compostela", R.drawable.perro3),
-                Announcement("Chile", 20, Date(), Date(), "Milladoiro", R.drawable.perro4),
-                Announcement("Trusqui", 22, Date(), Date(), "Santiago de Compostela", R.drawable.ph_gato1)
+                Announcement("Limón", 20, Date(), Date(), "Santiago de Compostela", R.drawable.img_gato1),
+                Announcement("Ron", 16, Date(), Date(), "Santiago de Compostela", R.drawable.img_perro1),
+                Announcement("Cuba", 18, Date(), Date(), "Milladoiro", R.drawable.img_gato2),
+                Announcement("Michi", 27, Date(), Date(), "Bertamirans", R.drawable.img_perro2),
+                Announcement("Leon", 30, Date(), Date(), "Santiago de Compostela", R.drawable.img_perro3),
+                Announcement("Chile", 20, Date(), Date(), "Milladoiro", R.drawable.img_perro4),
+                Announcement("Cuba", 18, Date(), Date(), "Milladoiro", R.drawable.img_gato2),
+                Announcement("Michi", 27, Date(), Date(), "Bertamirans", R.drawable.img_perro2),
+                Announcement("Leon", 30, Date(), Date(), "Santiago de Compostela", R.drawable.img_perro3),
+                Announcement("Chile", 20, Date(), Date(), "Milladoiro", R.drawable.img_perro4),
+                Announcement("Trusqui", 22, Date(), Date(), "Santiago de Compostela", R.drawable.img_gato1)
             )
         }
 

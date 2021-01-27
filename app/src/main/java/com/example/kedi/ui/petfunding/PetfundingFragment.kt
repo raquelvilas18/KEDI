@@ -49,20 +49,20 @@ class PetfundingFragment : Fragment() {
 
         private fun getPetfundingItems(): ArrayList<PetfundingItem> {
             //Mocked data
-            //Todo: get real petfunding items from back
+            //Todo: get real petfunding items from img_back
             return arrayListOf<PetfundingItem>(
-                PetfundingItem("Operación Limón", 200, 180, "progape", false, R.drawable.prot3),
-                PetfundingItem("Restaurar Galpón", 190, 90, "Refuxio Bando", false, R.drawable.prot5),
-                PetfundingItem("Pintar Muro", 500, 10, "Progape", false, R.drawable.prot1),
+                PetfundingItem("Operación Limón", 200, 180, "progape", false, R.drawable.img_prot3),
+                PetfundingItem("Restaurar Galpón", 190, 90, "Refuxio Bando", false, R.drawable.img_prot5),
+                PetfundingItem("Pintar Muro", 500, 10, "Progape", false, R.drawable.img_prot1),
                 PetfundingItem(
                     "Medicinas Michi",
                     58,
                     20,
                     "Protectora de Lugo",
                     false,
-                    R.drawable.prot4
+                    R.drawable.img_prot4
                 ),
-                PetfundingItem("Pintar Muro", 500, 10, "Progape", false, R.drawable.perro4),
+                PetfundingItem("Pintar Muro", 500, 10, "Progape", false, R.drawable.img_perro4),
                 PetfundingItem(
                     "Medicinas Michi",
                     58,

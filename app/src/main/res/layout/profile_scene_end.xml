@@ -9,7 +9,7 @@
         android:id="@+id/imageView28"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@drawable/wave_prof"
+        android:background="@drawable/vt_wave_prof"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,7 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/persona" />
+                android:src="@drawable/img_persona" />
         </androidx.cardview.widget.CardView>
 
 
@@ -58,7 +58,7 @@
             android:id="@+id/imageView8"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ilocalizacion"
+            android:src="@drawable/ic_localizacion"
             app:tint="@color/profile"
             app:layout_constraintBottom_toBottomOf="@+id/ubication"
             app:layout_constraintEnd_toStartOf="@+id/ubication" />
@@ -253,7 +253,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/gato2" />
+                    android:src="@drawable/img_gato2" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView

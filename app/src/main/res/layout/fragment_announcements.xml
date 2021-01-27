@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_announcements"
+    android:background="@drawable/sh_gradient_announcements"
     tools:context=".ui.announcements.AnnouncementsFragment">
 
     <ImageView
         android:id="@+id/imageView30"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="@drawable/wave_ann"
+        android:background="@drawable/vt_wave_ann"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ImageView>
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="100dp"
-        android:background="@drawable/top_rounded"
+        android:background="@drawable/sh_top_rounded"
         android:orientation="horizontal"
         android:paddingLeft="20dp"
         android:paddingTop="15dp"

@@ -85,7 +85,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/imenu"
+        app:srcCompat="@drawable/ic_menu"
         app:tint="#FFFFFF" />
 
     <ImageView
@@ -97,7 +97,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/menuIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="#FFFFFF"
-        app:srcCompat="@drawable/ichat" />
+        app:srcCompat="@drawable/ic_chat" />
 
 
 

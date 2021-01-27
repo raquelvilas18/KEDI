@@ -62,34 +62,34 @@ class PetfundingActivity : AppCompatActivity() {
 
     private fun getDonatorsImages(): ArrayList<Int> {
         //mocked Data
-        //Todo: get real donators images from back
+        //Todo: get real donators images from img_back
         return arrayListOf<Int>(
-            R.drawable.perfil4,
-            R.drawable.perfil3,
-            R.drawable.perfil2,
-            R.drawable.perfil1,
-            R.drawable.perfil4,
-            R.drawable.perfil3,
-            R.drawable.perfil2,
-            R.drawable.perfil4,
-            R.drawable.perfil3,
-            R.drawable.perfil3,
-            R.drawable.perfil2,
-            R.drawable.perfil1,
-            R.drawable.perfil4,
-            R.drawable.perfil3,
-            R.drawable.perfil2,
-            R.drawable.perfil4,
-            R.drawable.perfil3,
-            R.drawable.perfil3,
-            R.drawable.perfil2,
-            R.drawable.perfil1,
-            R.drawable.perfil4,
-            R.drawable.perfil3,
-            R.drawable.perfil2,
-            R.drawable.perfil4,
-            R.drawable.perfil3,
-            R.drawable.perfil2
+            R.drawable.img_perfil4,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil2,
+            R.drawable.img_perfil1,
+            R.drawable.img_perfil4,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil2,
+            R.drawable.img_perfil4,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil2,
+            R.drawable.img_perfil1,
+            R.drawable.img_perfil4,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil2,
+            R.drawable.img_perfil4,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil2,
+            R.drawable.img_perfil1,
+            R.drawable.img_perfil4,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil2,
+            R.drawable.img_perfil4,
+            R.drawable.img_perfil3,
+            R.drawable.img_perfil2
         )
     }
 
@@ -108,8 +108,8 @@ class PetfundingActivity : AppCompatActivity() {
 
     private fun getMosaicImages(): ArrayList<Int> {
         //Mocked data
-        //Todo: get real images from back
-        return arrayListOf(R.drawable.prot4, R.drawable.prot3, R.drawable.prot2, R.drawable.prot1)
+        //Todo: get real images from img_back
+        return arrayListOf(R.drawable.img_prot4, R.drawable.img_prot3, R.drawable.img_prot2, R.drawable.img_prot1)
     }
 
     private fun setPetfundingData() {

@@ -9,7 +9,7 @@
         android:id="@+id/imageView29"
         android:layout_width="421dp"
         android:layout_height="160dp"
-        android:background="@drawable/back"
+        android:background="@drawable/img_back"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
