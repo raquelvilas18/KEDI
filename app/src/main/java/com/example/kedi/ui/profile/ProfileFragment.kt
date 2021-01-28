@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +25,32 @@ private const val MIN_ALPHA = 0.5f
 
 
 class ProfileFragment : Fragment() {
+
+    private var clicked_more_button = false
+    private val rotateOpen: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            requireContext(),
+            R.anim.rotate_open_animation
+        )
+    }
+    private val rotateClose: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            requireContext(),
+            R.anim.rotate_close_animation
+        )
+    }
+    private val fromBottom: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            requireContext(),
+            R.anim.from_bottom_animation
+        )
+    }
+    private val toBottom: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            requireContext(),
+            R.anim.to_bottom_animation
+        )
+    }
 
     class ZoomOutPageTransformer : ViewPager2.PageTransformer {
         //class used to show the profile images and change with zoom effect (used when the profile
@@ -126,11 +154,12 @@ class ProfileFragment : Fragment() {
         super.onActivityCreated(state)
 
         configureListeners()
+        configureFloatingButtons()
 
         configureImageGallery()
     }
 
-    private fun configureListeners(){
+    private fun configureListeners() {
         opinions?.setOnClickListener {
             val intent = Intent(this.context, OpinionsActivity::class.java)
             startActivity(intent)
@@ -154,6 +183,46 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    private fun configureFloatingButtons(){
+        more_button.setOnClickListener{
+            onMoreButtonClicked()
+        }
+        edit_button.setOnClickListener{
+
+        }
+        configure_button.setOnClickListener{
+
+        }
+    }
+
+    private fun onMoreButtonClicked(){
+        setVisibility(clicked_more_button)
+        setAnimation(clicked_more_button)
+        clicked_more_button = !clicked_more_button
+
+    }
+    private fun setVisibility(clicked: Boolean){
+        if(!clicked){
+            edit_button.visibility = View.VISIBLE
+            configure_button.visibility = View.VISIBLE
+        }else{
+            edit_button.visibility = View.INVISIBLE
+            configure_button.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun setAnimation(clicked: Boolean){
+        if(!clicked){
+            edit_button.startAnimation(fromBottom)
+            configure_button.startAnimation(fromBottom)
+            more_button.startAnimation(rotateOpen)
+        }else{
+            edit_button.startAnimation(toBottom)
+            configure_button.startAnimation(toBottom)
+            more_button.startAnimation(rotateClose)
+        }
+    }
+
     private fun getProfileImages(): ArrayList<Int> {
         //todo: get real data from img_back
         //mocked data
@@ -165,7 +234,8 @@ class ProfileFragment : Fragment() {
             R.drawable.img_perfil3
         )
     }
-    private fun configureImageGallery(){
+
+    private fun configureImageGallery() {
         //Configure Image Gallery (viewPager)
         viewPager2 = viewPagerImageSlider
         var sliderItems = getProfileImages()

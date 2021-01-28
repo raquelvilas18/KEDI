@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@layout/activity_petfunding_scene_start"
+        motion:constraintSetEnd="@layout/activity_petfunding_scene_end"
+        motion:motionInterpolator="linear"
+        motion:duration="60000">
+        <OnSwipe
+            motion:touchAnchorSide="right"
+            motion:dragDirection="dragUp" />
+        <KeyFrameSet>
+            <KeyPosition
+                motion:keyPositionType="pathRelative"
+                motion:percentY="-0.25"
+                motion:framePosition="50"
+                motion:motionTarget="@id/button"/>
+        </KeyFrameSet>
+    </Transition>
+
+    <!--<ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/button"
+            android:layout_width="204dp"
+            android:layout_height="204dp"
+            android:background = "#D81B60">
+        <!-<CustomAttribute
+            motion:attributeName="backgroundColor"
+            motion:customColorValue="#D81B60" />
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/button"
+            android:layout_width="564dp"
+            android:layout_height="564dp"
+            android:background = "#9999FF">
+            <!-<CustomAttribute
+                motion:attributeName="backgroundColor"
+                motion:customColorValue="#9999FF" />
+        </Constraint>
+    </ConstraintSet>-->
+
+</MotionScene>
