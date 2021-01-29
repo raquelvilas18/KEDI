@@ -7,22 +7,23 @@
         android:layout_height="match_parent"
         android:id="@+id/frame_layout_profile"
         tools:context=".ui.profile.ProfileFragment">
-
-        <ImageView
-            android:id="@+id/imageView28"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@drawable/vt_wave_prof"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/announcements"></ImageView>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+       <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/profile_bg"
+            android:background="@color/colorPrimaryExtraDark"
             android:paddingTop="50dp">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/slider"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:iss_auto_cycle="false"
+                app:iss_selected_dot="@drawable/ic_dot_filled"
+                app:iss_unselected_dot="@drawable/ic_dot_outline"
+                app:iss_title_background="@color/transparent"
+                app:iss_placeholder="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/configure_button"
@@ -34,7 +35,7 @@
                 android:focusable="true"
                 android:visibility="invisible"
                 android:src="@drawable/ic_configure"
-                app:backgroundTint="@color/colorAccent"
+                app:backgroundTint="@color/colorPrimaryExtraDark"
                 app:layout_constraintBottom_toTopOf="@+id/edit_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/edit_button" />
@@ -50,7 +51,7 @@
                 android:focusable="true"
                 android:visibility="invisible"
                 android:src="@drawable/ic_edit"
-                app:backgroundTint="@color/colorAccent"
+                app:backgroundTint="@color/colorPrimaryExtraDark"
                 app:layout_constraintBottom_toTopOf="@+id/more_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/more_button" />
@@ -70,16 +71,15 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewPpal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:elevation="10dp"
                 app:cardCornerRadius="80dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/slider"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/slider">
 
                 <ImageView
                     android:id="@+id/imageProfile"
@@ -89,48 +89,47 @@
                     android:src="@drawable/img_persona" />
             </androidx.cardview.widget.CardView>
 
-
-            <TextView
-                android:id="@+id/profileName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Raquel Vilas"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewPpal" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_localizacion"
-                app:layout_constraintBottom_toBottomOf="@+id/ubication"
-                app:layout_constraintEnd_toStartOf="@+id/ubication"
-                app:tint="@color/profile" />
-
-            <TextView
-                android:id="@+id/ubication"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Santiago de Compostela"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profileName" />
-
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="0dp"
                 android:background="@drawable/ly_white_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ubication">
+                app:layout_constraintTop_toBottomOf="@+id/slider">
+
+                <TextView
+                    android:id="@+id/profileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sarala"
+                    android:text="Raquel Vilas"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_localizacion"
+                    app:layout_constraintBottom_toBottomOf="@+id/ubication"
+                    app:layout_constraintEnd_toStartOf="@+id/profileName"
+                    app:layout_constraintStart_toStartOf="@+id/profileName"
+                    app:tint="@color/profile" />
+
+                <TextView
+                    android:id="@+id/ubication"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Santiago de Compostela"
+                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintTop_toBottomOf="@+id/profileName" />
 
                 <TextView
                     android:id="@+id/opinions"
@@ -173,12 +172,12 @@
                     android:id="@+id/profileDescription"
                     android:layout_width="333dp"
                     android:layout_height="92dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="32dp"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
                     android:textAlignment="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/ubication" />
 
                 <ImageView
                     android:id="@+id/imageView9"
@@ -312,6 +311,24 @@
                         android:src="@drawable/ic_plus_gray" />
                 </androidx.cardview.widget.CardView>
 
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="30dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ubication" />
+
+                <View
+                    android:id="@+id/divider8"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="9dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profileDescription" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -352,5 +369,4 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </FrameLayout>

@@ -3,6 +3,9 @@
     <color name="colorPrimary">#F29441</color>
     <color name="colorSecondary">#70F29441</color>
     <color name="colorPrimaryDark">#F5615A</color>
+    <color name="colorPrimaryExtraDark">#b8544f</color>
+    <color name="colorPrimaryLigth">#f5e4e4</color>
+    <color name="colorPrimaryExtraLigth">#f5e4e4</color>
     <color name="colorAccent">#72a8bc</color>
     <color name="announcements">#e38232</color>
     <color name="announcements_bg1">#60e38232</color>
@@ -19,4 +22,5 @@
     <color name="grade_yellow">#ebcf00</color>
     <color name="grade_red">#ed2b00</color>
     <color name="dark">#99000000</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

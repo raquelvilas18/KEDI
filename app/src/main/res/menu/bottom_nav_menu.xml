@@ -6,24 +6,24 @@
         android:id="@+id/navigation_announcements"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="anuncios"
-        app:cnb_iconColor="@color/announcements" />
+        app:cnb_iconColor="@color/colorPrimaryDark" />
 
     <item
         android:id="@+id/navigation_petfunding"
         android:icon="@drawable/ic_heart"
         android:title="petfunding"
-        app:cnb_iconColor="@color/petfunding"  />
+        app:cnb_iconColor="@color/colorPrimaryDark"  />
 
     <item
         android:id="@+id/navigation_create"
         android:icon="@drawable/ic_baseline_add_circle_outline_24"
         android:title="nuevo"
-        app:cnb_iconColor="@color/create" />
+        app:cnb_iconColor="@color/colorPrimaryDark" />
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="perfil"
-        app:cnb_iconColor="@color/profile" />
+        app:cnb_iconColor="@color/colorPrimaryDark" />
 
 </menu>

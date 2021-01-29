@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito"
         android:text="@string/a_1_km_de_ti"
-        android:textColor="@color/announcements"
+        android:textColor="@color/colorPrimaryExtraDark"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/city"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -73,6 +73,7 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:background="@drawable/ic_ubication"
+        android:backgroundTint="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="@+id/distancia"
         app:layout_constraintEnd_toStartOf="@+id/distancia"
         app:layout_constraintTop_toTopOf="@+id/distancia" />

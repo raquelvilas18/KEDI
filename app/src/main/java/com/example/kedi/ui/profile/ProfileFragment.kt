@@ -11,6 +11,8 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.kedi.R
 import com.example.kedi.ui.OpinionsActivity
 import com.example.kedi.ui.PetProfileActivity
@@ -156,7 +158,19 @@ class ProfileFragment : Fragment() {
         configureListeners()
         configureFloatingButtons()
 
+        configureSlider()
+
         configureImageGallery()
+    }
+
+    private fun configureSlider(){
+        var slideModel = arrayListOf<SlideModel>( SlideModel(R.drawable.img_slider1, ""),
+            SlideModel(R.drawable.img_slider2,""),
+                    SlideModel(R.drawable.img_slider3, ""),
+        SlideModel(R.drawable.img_slider4,""))
+
+
+        slider.setImageList(slideModel, ScaleTypes.CENTER_CROP)
     }
 
     private fun configureListeners() {
@@ -188,10 +202,10 @@ class ProfileFragment : Fragment() {
             onMoreButtonClicked()
         }
         edit_button.setOnClickListener{
-
+            //todo: create edit option
         }
         configure_button.setOnClickListener{
-
+            //todo: create edit option
         }
     }
 

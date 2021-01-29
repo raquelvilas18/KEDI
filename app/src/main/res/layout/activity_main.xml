@@ -8,6 +8,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
@@ -17,9 +18,18 @@
         <include layout="@layout/left_menu_layout"></include>
     </com.google.android.material.navigation.NavigationView>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    <ImageView
+        android:id="@+id/menuIcoewfwn"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_menu"
+        app:tint="#FFFFFF" />
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:background="#FFFFFF"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -53,14 +63,14 @@
     <ImageView
         android:id="@+id/icon"
         android:layout_width="30dp"
-        app:tint="@color/announcements"
         android:layout_height="30dp"
         android:scaleType="centerInside"
-        android:src="@drawable/ic_kedi_vt"
+        android:src="@drawable/ic_kedi_compl"
         app:layout_constraintBottom_toBottomOf="@+id/menuIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/colorPrimaryLigth" />
 
 
 
@@ -69,7 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:padding="8dp"
-
+        android:elevation="20dp"
         android:layout_gravity="bottom"
         android:background="#FFFFFF"
         app:cnb_menuResource="@menu/bottom_nav_menu"

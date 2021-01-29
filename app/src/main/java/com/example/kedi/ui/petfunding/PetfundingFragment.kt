@@ -19,7 +19,11 @@ import com.example.kedi.R
 import com.example.kedi.ui.ARG_GOAL
 import com.example.kedi.ui.ARG_PROGRESS
 import com.example.kedi.ui.PetfundingActivity
+import kotlinx.android.synthetic.main.activity_petfunding.view.*
 import kotlinx.android.synthetic.main.row_petfunding.view.*
+import kotlinx.android.synthetic.main.row_petfunding.view.button
+import kotlinx.android.synthetic.main.row_petfunding.view.progressText
+import kotlinx.android.synthetic.main.row_petfunding.view.tittle
 
 class PetfundingFragment : Fragment() {
 
@@ -29,12 +33,14 @@ class PetfundingFragment : Fragment() {
         progress: Int,
         owner: String,
         urgent: Boolean,
-        img: Int
+        img: Int,
+        owner_img: Int
     ) {
         var title = title
         var total = total
         var progress = progress
         var img = img
+        var owner_img = owner_img
     }
 
     private class AdapterPetfunding(context: Context) : BaseAdapter() {
@@ -51,24 +57,26 @@ class PetfundingFragment : Fragment() {
             //Mocked data
             //Todo: get real petfunding items from img_back
             return arrayListOf<PetfundingItem>(
-                PetfundingItem("Operación Limón", 200, 180, "progape", false, R.drawable.img_prot3),
-                PetfundingItem("Restaurar Galpón", 190, 90, "Refuxio Bando", false, R.drawable.img_prot5),
-                PetfundingItem("Pintar Muro", 500, 10, "Progape", false, R.drawable.img_prot1),
+                PetfundingItem("Operación Limón", 200, 180, "progape", false, R.drawable.img_prot3, R.drawable.progape),
+                PetfundingItem("Restaurar Galpón", 190, 90, "Refuxio Bando", false, R.drawable.img_prot5, R.drawable.img_prote1),
+                PetfundingItem("Pintar Muro", 500, 10, "Progape", false, R.drawable.img_prot1, R.drawable.img_prote2),
                 PetfundingItem(
                     "Medicinas Michi",
                     58,
                     20,
                     "Protectora de Lugo",
                     false,
-                    R.drawable.img_prot4
+                    R.drawable.img_prot4,
+                    R.drawable.img_prote3
                 ),
-                PetfundingItem("Pintar Muro", 500, 10, "Progape", false, R.drawable.img_perro4),
+                PetfundingItem("Pintar Muro", 500, 10, "Progape", false, R.drawable.img_perro4, R.drawable.progape),
                 PetfundingItem(
                     "Medicinas Michi",
                     58,
                     20,
                     "Protectora de Lugo",
                     false,
+                    R.drawable.progape,
                     R.drawable.progape
                 )
             )
@@ -93,13 +101,15 @@ class PetfundingFragment : Fragment() {
             val row_main = layoutInflater.inflate(R.layout.row_petfunding, p2, false)
             var pct =(petfundingItems.get(p0).progress.toFloat() /
                         petfundingItems.get(p0).total.toFloat()) * 100
-            row_main.ownerPet.text = petfundingItems.get(p0).title
+            row_main.tittle.text = petfundingItems.get(p0).title
             //Set level of the heart progress graphic
             row_main.button.background.setLevel((pct * 100).toInt())
             row_main.progressText.text =
                 "${petfundingItems.get(p0).progress}/${petfundingItems.get(p0).total}€"
             val im = row_main.findViewById<ImageView>(R.id.image)
             im.setImageResource(petfundingItems.get(p0).img)
+
+            row_main.owner_image.setImageResource(petfundingItems.get(p0).owner_img)
             return row_main
         }
     }

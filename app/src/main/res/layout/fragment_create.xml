@@ -4,37 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sh_gradient_create"
+    android:background="@color/colorPrimaryExtraDark"
     tools:context=".ui.proposals.ProposalsFragment">
-
-    <ImageView
-        android:id="@+id/imageView28"
-        android:layout_width="match_parent"
-        android:layout_height="86dp"
-        android:background="@drawable/vt_wave_creat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/announcements"></ImageView>
-
-   <!-- <com.baoyachi.stepview.HorizontalStepView
-        android:id="@+id/horizontalStepView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="#FFFFFF"
         android:elevation="3dp"
-        android:layout_width="365dp"
-        android:layout_height="365dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="22dp"
-        android:background="@drawable/ly_white_rounded"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,29 +119,27 @@
 
         <Button
             android:id="@+id/button"
-            android:textAllCaps="false"
-
             android:layout_width="290dp"
+
             android:layout_height="61dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ly_principal_button"
             android:text="Siguiente"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             app:layout_constraintTop_toBottomOf="@+id/textView15"
             tools:layout_editor_absoluteX="2dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin"
+            android:text="Crear anuncio"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="3dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/cabin"
-        android:text="Crear anuncio"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

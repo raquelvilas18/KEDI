@@ -3,13 +3,14 @@ package com.example.kedi.ui
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.kedi.R
-import kotlinx.android.synthetic.main.activity_lista.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lista)
+        setContentView(R.layout.activity_main)
         try {
             this.supportActionBar!!.hide()
         } catch (e: NullPointerException) {
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configureListeners() {
+
         chatIcon.setOnClickListener {
             val intent: Intent = Intent(this, ChatsActivity::class.java)
             startActivity(intent)
@@ -73,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                changeIcon(position)
+                //changeIcon(position)
                 when (position) {
                     0 -> menu_bottom.setItemSelected(R.id.navigation_announcements)
                     1 -> menu_bottom.setItemSelected(R.id.navigation_petfunding)
