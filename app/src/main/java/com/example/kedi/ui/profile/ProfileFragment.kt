@@ -164,13 +164,16 @@ class ProfileFragment : Fragment() {
     }
 
     private fun configureSlider(){
-        var slideModel = arrayListOf<SlideModel>( SlideModel(R.drawable.img_slider1, ""),
-            SlideModel(R.drawable.img_slider2,""),
-                    SlideModel(R.drawable.img_slider3, ""),
-        SlideModel(R.drawable.img_slider4,""))
-
-
+        var slideModel = getProfileSliderImages()
         slider.setImageList(slideModel, ScaleTypes.CENTER_CROP)
+    }
+
+    private fun getProfileSliderImages(): ArrayList<SlideModel> {
+        //todo: call real backend
+        return arrayListOf<SlideModel>( SlideModel(R.drawable.img_slider1, ""),
+            SlideModel(R.drawable.img_slider2,""),
+            SlideModel(R.drawable.img_slider3, ""),
+            SlideModel(R.drawable.img_slider4,""))
     }
 
     private fun configureListeners() {

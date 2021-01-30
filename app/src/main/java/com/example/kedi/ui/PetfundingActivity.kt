@@ -9,8 +9,12 @@ import android.widget.BaseAdapter
 import android.widget.GridView
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.kedi.R
 import kotlinx.android.synthetic.main.activity_petfunding.*
+import kotlinx.android.synthetic.main.activity_petfunding.slider
+import kotlinx.android.synthetic.main.fragment_profile.*
 import pereira.agnaldo.previewimgcol.ImageCollectionView
 
 const val ARG_GOAL = "arg_pet_goal"
@@ -48,8 +52,24 @@ class PetfundingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_petfunding)
         supportActionBar?.hide()
         //Set the mosaic of images
-        setImageMosaic()
+        //setImageMosaic()
+        configureSlider()
         setGridOfDonaters()
+    }
+
+    private fun configureSlider(){
+        var slideModel = getProfileSliderImages()
+        slider.setImageList(slideModel, ScaleTypes.CENTER_CROP)
+    }
+
+    private fun getProfileSliderImages(): ArrayList<SlideModel> {
+        //todo: call real backend
+        //mocked data
+        return arrayListOf<SlideModel>( SlideModel(R.drawable.img_slider1, ""),
+            SlideModel(R.drawable.img_slider2,""),
+            SlideModel(R.drawable.img_slider3, ""),
+            SlideModel(R.drawable.img_slider4,"")
+        )
     }
 
     private fun setGridOfDonaters() {
@@ -118,7 +138,7 @@ class PetfundingActivity : AppCompatActivity() {
         val progress = intent.extras?.get(ARG_PROGRESS) as Int
         val percentage = (progress.toFloat() / max.toFloat()) * 100
         button2.background.setLevel((percentage * 100).toInt())
-        button.startRippleAnimation();
+        //button.startRippleAnimation();
         progressText.text = "${progress}/${max}€"
     }
 
